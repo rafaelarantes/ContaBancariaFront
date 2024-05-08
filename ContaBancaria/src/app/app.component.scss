@@ -3,9 +3,15 @@ div {
     justify-content: center;
 
     .opcoes {
-        border: 1px solid gray;
         flex-direction: column;
         width: 30%;
+        border-radius: var(--mdc-elevated-card-container-shape);
+        background-color: var(--mdc-elevated-card-container-color);
+        border-width: 0;
+        border-style: solid;
+        border-color: var(--mdc-elevated-card-container-color);
+        box-shadow: var(--mdc-elevated-card-container-elevation);
+        margin-top: 1em;
     }
 
     .opcoes__label{
@@ -17,6 +23,24 @@ div {
     
     .opcoes__buttons {
         flex-direction: column;
+
+        > div {
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+        }
+
+        @media (max-width: 600px) {
+        
+            button {
+                width: 94%;
+            }
+        }
+
+        @media (min-width: 600px) {
+            button {
+                min-width: 12em;
+            }
+          }
     }
 }
 
