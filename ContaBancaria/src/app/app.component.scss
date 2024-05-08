@@ -1,0 +1,22 @@
+div {
+    display: flex;
+    justify-content: center;
+
+    .opcoes {
+        border: 1px solid gray;
+        flex-direction: column;
+        width: 30%;
+    }
+
+    .opcoes__label{
+        text-align: center;
+        background-color: green;
+        color: white;
+        font-size: large;
+    }
+    
+    .opcoes__buttons {
+        flex-direction: column;
+    }
+}
+
