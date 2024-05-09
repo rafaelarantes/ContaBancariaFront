@@ -1,0 +1,33 @@
+<app-card [titulo]="titulo">
+
+  
+    <form [formGroup]="formLogin" novalidate>
+      <div>
+        <mat-form-field appearance="outline" class="form-field-full">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="Email" placeholder="Ex. nome@email.com">
+          <mat-error *ngIf="formLogin.get('Email').hasError('Email') && formLogin.get('Email').touched">
+            Informe um email válido
+          </mat-error>
+          <mat-error *ngIf="formLogin.get('Email').hasError('required') && formLogin.get('Email').touched">
+            Email é <strong>obrigatório</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+    <div>
+        <mat-form-field appearance="outline" class="form-field-full">
+          <mat-label>Senha</mat-label>
+          <input type="password" matInput formControlName="Senha">
+          <mat-error *ngIf="formLogin.get('Senha').invalid && formLogin.get('Senha').touched">Senha é
+            <strong>obrigatória</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+    <div>
+      <button mat-stroked-button color="primary" class="full" (click)="logar()">Entrar</button>
+    </div>
+  </form>
+
+</app-card>
