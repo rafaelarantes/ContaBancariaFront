@@ -1,33 +1,40 @@
 <app-card [titulo]="titulo">
-
-  
     <form [formGroup]="formLogin" novalidate>
-      <div>
-        <mat-form-field appearance="outline" class="form-field-full">
-          <mat-label>Email</mat-label>
-          <input type="email" matInput formControlName="Email" placeholder="Ex. nome@email.com">
-          <mat-error *ngIf="formLogin.get('Email').hasError('Email') && formLogin.get('Email').touched">
-            Informe um email válido
-          </mat-error>
-          <mat-error *ngIf="formLogin.get('Email').hasError('required') && formLogin.get('Email').touched">
-            Email é <strong>obrigatório</strong>
-          </mat-error>
+
+      <div class="email">
+        <mat-form-field>
+          <mat-label>E-mail</mat-label>
+          <input matInput
+                placeholder="nome@email.com"
+                formControlName="Email"
+                (blur)="atualizarMensagemErroEmail()"
+                required>
         </mat-form-field>
+
+        @if (formLogin.get('Email')?.invalid) {
+          <mat-error>{{ mensagemErro.Email }}</mat-error>
+        }
       </div>
 
-    <div>
-        <mat-form-field appearance="outline" class="form-field-full">
+      <div class="senha">
+        <mat-form-field >
           <mat-label>Senha</mat-label>
-          <input type="password" matInput formControlName="Senha">
-          <mat-error *ngIf="formLogin.get('Senha').invalid && formLogin.get('Senha').touched">Senha é
-            <strong>obrigatória</strong>
-          </mat-error>
+          <input matInput [type]="hide ? 'password' : 'text'"
+                (blur)="atualizarMensagemErroSenha()"
+                formControlName="Senha">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
         </mat-form-field>
+
+        @if (formLogin.get('Senha')?.invalid) {
+          <mat-error>{{ mensagemErro.Senha }}</mat-error>
+        }
       </div>
 
-    <div>
-      <button mat-stroked-button color="primary" class="full" (click)="logar()">Entrar</button>
-    </div>
+      <div class="entrar">
+        <button mat-stroked-button color="primary" class="full" (click)="logar()">Entrar</button>
+      </div>
   </form>
 
 </app-card>

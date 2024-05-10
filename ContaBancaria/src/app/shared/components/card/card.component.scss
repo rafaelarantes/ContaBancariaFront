@@ -12,6 +12,26 @@ div {
         border-color: var(--mdc-elevated-card-container-color);
         box-shadow: var(--mdc-elevated-card-container-elevation);
         margin-top: 1em;
+
+        @media (max-width: 940px) {
+            width: 40%;
+        }
+
+        @media (max-width: 600px) {
+            width: 45%;
+        }
+
+        @media (max-width: 550px) {
+            width: 50%;
+        }
+
+        @media (max-width: 400px) {
+            width: 60%;
+        }
+
+        @media (max-width: 350px) {
+            width: 80%;
+        }
     }
   
     .shared-card__label{
