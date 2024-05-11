@@ -4,11 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AutenticacaoService } from '../autenticacao/autenticacao.service';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-default-layout',
   standalone: true,
-  imports: [ RouterOutlet, MatButtonModule, MatIconModule ],
+  imports: [ RouterOutlet, MatButtonModule, MatIconModule, MatToolbarModule ],
   templateUrl: './default-layout.component.html',
   styleUrl: './default-layout.component.scss'
 })

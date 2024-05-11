@@ -1,5 +1,9 @@
-<router-outlet></router-outlet>
+<div class="menu">
+	<mat-toolbar>
+		<button mat-icon-button (click)="deslogar()">
+			<mat-icon>logout</mat-icon>
+		</button>
+	</mat-toolbar>
+</div>
 
-<button mat-icon-button (click)="deslogar()">
-	<mat-icon>logout</mat-icon>
-</button>
+<router-outlet></router-outlet>
