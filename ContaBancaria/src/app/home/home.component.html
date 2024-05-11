@@ -1,11 +1,22 @@
-<app-card [titulo]="titulo">
-    <div class="opcao">
-      <button mat-stroked-button color="primary">Banco Central</button>
-    </div>
-    <div class="opcao">
-      <button mat-stroked-button color="primary">Banco</button>
-    </div>
-    <div class="opcao">
-      <button mat-stroked-button color="primary">Conta Bancária</button>
-    </div>
+@if(possuiPermissao){
+  <app-card [titulo]="titulo">
+    @if(estaAutorizado('BancoCentral')){
+      <div class="opcao">
+        <button mat-stroked-button color="primary">Banco Central</button>
+      </div>
+    }
+
+    @if(estaAutorizado('Banco')){
+      <div class="opcao">
+        <button mat-stroked-button color="primary">Banco</button>
+      </div>
+    }
+
+    @if(estaAutorizado('Conta')){
+      <div class="opcao">
+        <button mat-stroked-button color="primary">Conta Bancária</button>
+      </div>
+    }
   </app-card>
+}
+

@@ -10,7 +10,7 @@ export const autenticadoGuard: CanActivateFn = (route, state) => {
     return true;
   }
 
-  inject(Router).createUrlTree(['/login']);
+  inject(Router).navigate(['/login']);
   return false;
 };
 

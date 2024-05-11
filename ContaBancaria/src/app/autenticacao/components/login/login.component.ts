@@ -60,19 +60,27 @@ export class LoginComponent {
   }
 
   logar(){
-    if(this.formLogin.invalid) {
-      this.atualizarMensagemErroEmail();
-      this.atualizarMensagemErroSenha();
-      
-      return;
-    }
-    var usuario = this.formLogin.getRawValue() as IUsuario;
-    this.autenticacaoService.logar(usuario).subscribe((response) => {
-        if(!response.sucesso){
-          this.snackBar.open('Falha na autenticação', 'Usuário ou senha incorretos.', {
+      if(this.formLogin.invalid) {
+        this.atualizarMensagemErroEmail();
+        this.atualizarMensagemErroSenha();
+        
+        return;
+      }
+      var usuario = this.formLogin.getRawValue() as IUsuario;
+      let retorno = this.autenticacaoService.logar(usuario);
+
+      retorno.then((data) => {
+        if(!data.resultado){
+          this.snackBar.open('Falha na autenticação', data['mensagens'].join(', '), {
             duration: 3000
           });
         }
-    })
+      }).catch((error) => {
+        this.snackBar.open('Falha na autenticação', 'Erro interno.', {
+          duration: 3000
+        });
+      })
+
+    }
   }
-}
+

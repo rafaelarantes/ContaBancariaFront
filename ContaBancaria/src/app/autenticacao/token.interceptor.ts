@@ -8,7 +8,7 @@ export const tokenInterceptor: HttpInterceptorFn =
     (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
   
   const autenticacaoService = inject(AutenticacaoService);
-  const token = autenticacaoService.obterTokenUsuario;
+  const token = autenticacaoService.tokenUsuario;
   
   const requestUrl: Array<any> = req.url.split('/');
   const apiUrl: Array<any> = environment.apiUrl.split('/');

@@ -7,11 +7,11 @@ import { naoAutenticadoGuard } from './autenticacao/nao-autenticado.guard';
 import { autenticadoGuard } from './autenticacao/autenticado.guard';
 
 export const routes: Routes = [
+    { path: '', component: DefaultLayoutComponent, canActivate: [ autenticadoGuard ], 
+    children: [
+        { path: '', component: HomeComponent }
+    ]
+    },
     { path: '', component: LoginComponent, canActivate: [naoAutenticadoGuard] },
     { path: 'login', component: LoginComponent, canActivate: [naoAutenticadoGuard] },
-    { path: '', component: DefaultLayoutComponent, canActivate: [ autenticadoGuard ], 
-        children: [
-            { path: '', component: HomeComponent }
-        ]
-    }
 ];

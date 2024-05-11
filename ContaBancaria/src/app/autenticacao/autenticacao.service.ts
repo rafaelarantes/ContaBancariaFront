@@ -5,46 +5,39 @@ import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 import { IUsuario } from './interfaces/iusuario';
-//import { environment } from 'src/environments/environment';
-
-//const apiUrlUsuario = environment.apiUrl + "Usuario";
+import { environment } from '../../environments/environment';
+import { RequestService } from '../shared/services/request/request.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacaoService {
 
-  constructor(//private httpClient: HttpClient,
-              private router: Router) { }
+  constructor(private httpClient: HttpClient,
+              private router: Router,
+              private requestService: RequestService) { }
 
-logar(usuario: IUsuario) : Observable<any> {
-  /*return this.httpClient.post<any>(apiUrlUsuario + "/login", usuario).pipe(
-  tap((resposta) => {
-  if(!resposta.sucesso) return;
-  localStorage.setItem('token', btoa(JSON.stringify(resposta['token'])));
-  localStorage.setItem('usuario', btoa(JSON.stringify(resposta['usuario'])));
-  this.router.navigate(['']);
-  }));*/
+async logar(usuario: IUsuario) : Promise<any> {
+  return new Promise((resolve, reject) => {
+    this.requestService.post("login", { Login: usuario.Email, Senha: usuario.Senha })
+    .then((data) => {
+    
+      if(!data.resultado) {
+        resolve(data);
+        return;
+      }
 
-  return this.mockUsuarioLogin(usuario).pipe(tap((resposta) => {
-      if(!resposta.sucesso) return;
-        localStorage.setItem('token', btoa(JSON.stringify("TokenQueSeriaGeradoPelaAPI")));
-        localStorage.setItem('usuario', btoa(JSON.stringify(usuario)));
-        this.router.navigate(['']);
-      }));
-}
-
-private mockUsuarioLogin(usuario: IUsuario): Observable<any> {
-    var retornoMock: any = [];
-    if(usuario.Email === "a@a.com" && usuario.Senha == "123"){
-      retornoMock.sucesso = true;
-      retornoMock.usuario = usuario;
-      retornoMock.token = "TokenQueSeriaGeradoPelaAPI";
-      return of(retornoMock);
-    }
-    retornoMock.sucesso = false;
-    retornoMock.usuario = usuario;
-    return of(retornoMock);
+      localStorage.setItem('token', data['data']['token']);
+      localStorage.setItem('autorizacao', data['data']['autorizacao']);
+  
+      this.router.navigate(['']);
+  
+      resolve(data);
+    })
+    .catch((error) => {
+      reject(error);
+    });
+  });
 }
 
 deslogar() {
@@ -52,25 +45,15 @@ deslogar() {
   this.router.navigate(['login']);
 }
 
-get obterUsuarioLogado(): IUsuario {
-  return localStorage.getItem('usuario')
-  ? JSON.parse(atob(localStorage.getItem('usuario')!))
-  : null;
+get autorizacao(): string {
+  return localStorage.getItem('autorizacao')!;
 }
 
-get obterIdUsuarioLogado(): string | null {
-  return localStorage.getItem('usuario')
-  ? (JSON.parse(atob(localStorage.getItem('usuario')!)) as IUsuario).Id
-  : null;
-}
-
-get obterTokenUsuario(): string {
-  return localStorage.getItem('token')
-  ? JSON.parse(atob(localStorage.getItem('token')!))
-  : null;
+get tokenUsuario(): string {
+  return localStorage.getItem('token')!;
 }
 
 get logado(): boolean {
-  return localStorage.getItem('token') ? true : false;
+    return localStorage.getItem('token') ? true : false;
   }
 }
