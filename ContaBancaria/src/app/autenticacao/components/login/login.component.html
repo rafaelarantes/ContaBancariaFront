@@ -9,11 +9,12 @@
                 formControlName="Email"
                 (blur)="atualizarMensagemErroEmail()"
                 required>
+                @if (formLogin.get('Email')?.invalid) {
+                  <mat-error>{{ mensagemErro.Email }}</mat-error>
+                }
         </mat-form-field>
 
-        @if (formLogin.get('Email')?.invalid) {
-          <mat-error>{{ mensagemErro.Email }}</mat-error>
-        }
+
       </div>
 
       <div class="senha">
@@ -25,11 +26,12 @@
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
+          @if (formLogin.get('Senha')?.invalid) {
+            <mat-error>{{ mensagemErro.Senha }}</mat-error>
+          }
         </mat-form-field>
 
-        @if (formLogin.get('Senha')?.invalid) {
-          <mat-error>{{ mensagemErro.Senha }}</mat-error>
-        }
+
       </div>
 
       <div class="entrar">

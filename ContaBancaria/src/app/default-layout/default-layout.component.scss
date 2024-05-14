@@ -3,4 +3,17 @@
     justify-content: end;
     top: 0;
     background-color: #7cc67c;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.menu .mat-icon {
+    color: white;
+}
+
+.conteudo {
+    position: absolute;
+    top: 3.6em;
+    width: 100%;
 }
