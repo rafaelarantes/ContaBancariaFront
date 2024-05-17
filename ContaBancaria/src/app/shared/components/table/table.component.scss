@@ -1,0 +1,35 @@
+table {
+    width: 100%;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+  }
+  
+  .mat-mdc-row:hover .mat-mdc-cell {
+    border-color: currentColor;
+  }
+  
+.tabela-listagem {
+  margin-top: 1rem;
+  width: 80%;
+  margin-left: 10%;
+  overflow-y: auto;
+
+  @media (max-width: 365px) {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  @media (max-width: 325px) {
+    width: 96%;
+    margin-left: 2%;
+  }
+
+  @media (max-width: 325px) {
+    width: 100%;
+    margin-left: 0;
+  }
+}

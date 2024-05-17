@@ -1,0 +1,32 @@
+<div class="mat-elevation-z4 tabela-listagem">
+
+    <table mat-table [dataSource]="getDataSource" matSort (matSortChange)="announceSortChange($event)">
+      @for(column of getColumns; track column){
+          <ng-container [matColumnDef]="column[0]">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="column[0] === OPTIONS"> {{ column[1] }} </th>
+            @if(column[0] === OPTIONS){
+              <td mat-cell *matCellDef="let element">
+                @if(actionEnabled(ADD)){
+                  <i class="material-icons">add</i>
+                }
+                
+                @if(actionEnabled(DELETE)){
+                  <i class="material-icons">delete</i>
+                }
+              </td>
+            }
+            @else {
+              <td mat-cell *matCellDef="let element"> {{ element[column[0]] }} </td>
+            }
+          </ng-container>
+      }
+
+      <tr mat-header-row *matHeaderRowDef="getDisplayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: getDisplayedColumns;"></tr>
+      
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[10]"
+                   showFirstLastButtons>
+    </mat-paginator>
+  </div>
