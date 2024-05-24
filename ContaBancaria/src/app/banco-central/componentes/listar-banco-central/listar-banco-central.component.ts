@@ -11,9 +11,11 @@ import { ITable } from '../../../shared/components/table/itable';
   styleUrl: './listar-banco-central.component.scss',
 })
 export class ListarBancoCentralComponent implements AfterViewInit {
+  
   @ViewChild(TableComponent) tableComponent: TableComponent = <TableComponent>{};
 
-  constructor() {}
+  constructor() {
+  }
 
   ngAfterViewInit() {
     let columns = new Map<string, string>();

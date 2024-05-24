@@ -20,7 +20,7 @@ import { SharedModule } from '../../../shared/shared.module';
 })
 export class LoginComponent {
   formLogin: FormGroup;
-  titulo = 'Login';
+  tituloCard = 'Login';
   hide = true;
   mensagemErro = {
     Email: '',

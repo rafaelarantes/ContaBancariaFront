@@ -7,6 +7,7 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { PtBrMatPaginatorIntl } from './pt-br-mat-paginator-intl';
 import { IAction } from './iaction';
 import { ITable } from './itable'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -31,7 +32,8 @@ export class TableComponent implements AfterViewInit {
   readonly DELETE: string = 'delete';
   readonly OPTIONS: string = 'options';
 
-  constructor(private _liveAnnouncer: LiveAnnouncer) {
+  constructor(private _liveAnnouncer: LiveAnnouncer,
+              private router: Router) {
     this.actions.set(this.EDIT, { enabled: true });
     this.actions.set(this.DELETE, { enabled: true });
   }
@@ -100,5 +102,13 @@ export class TableComponent implements AfterViewInit {
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }
+  }
+
+  edit(element: ITable) {
+    //this.router.navigate([ element.options ]);
+  }
+
+  delete(element: ITable) {
+    
   }
 }

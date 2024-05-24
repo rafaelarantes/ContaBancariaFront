@@ -14,7 +14,7 @@ import { AutenticacaoService } from '../autenticacao/autenticacao.service';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  titulo = "Acesse";
+  tituloCard = "Acesse";
 
   constructor(private autenticacaoService: AutenticacaoService,
               private router: Router){}

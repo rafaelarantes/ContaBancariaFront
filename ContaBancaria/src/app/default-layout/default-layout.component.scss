@@ -7,7 +7,8 @@
 
 .menu mat-toolbar {
     display: flex;
-    justify-content: end;
+    flex-direction: row;
+    justify-content: space-between;
     top: 0;
     background-color: #7cc67c;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -15,6 +16,16 @@
     -moz-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     height: 100%;
 }
+
+.menu .titulo {
+    width: 50%;
+}
+
+.menu .logou {
+    width: 50%;
+}
+
+
 
 .menu .mat-icon {
     color: white;

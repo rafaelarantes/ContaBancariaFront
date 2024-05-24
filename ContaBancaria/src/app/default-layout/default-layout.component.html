@@ -1,8 +1,13 @@
 <div class="menu">
-	<mat-toolbar>
-		<button mat-icon-button (click)="deslogar()">
-			<mat-icon>logout</mat-icon>
-		</button>
+	<mat-toolbar color="primary">
+		<div class="titulo">
+			<span class="titulo">{{ titulo }}</span>
+		</div>
+		<div class="logout">
+			<button mat-icon-button (click)="deslogar()">
+				<mat-icon class="logout">logout</mat-icon>
+			</button>
+		</div>
 	</mat-toolbar>
 </div>
 

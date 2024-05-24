@@ -56,3 +56,28 @@ $max-height-table-diference-window: 40px;
     margin-left: 2%;
   }
 }
+
+@media (max-width: 370px) { 
+  ::ng-deep .mat-mdc-paginator-range-label {
+    display: none !important;
+  }
+
+  ::ng-deep .mat-mdc-paginator-container {
+    justify-content: center !important;
+  }
+}
+
+::ng-deep .mat-mdc-paginator-range-label {
+  display: contents;
+}
+
+td.mat-column-options {
+  div {
+    display: flex;
+
+    > div {
+      width: 3em;
+    }
+  }
+}
+
