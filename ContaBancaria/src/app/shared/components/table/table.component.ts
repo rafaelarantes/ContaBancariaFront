@@ -27,12 +27,12 @@ export class TableComponent implements AfterViewInit {
   private dataSource = new MatTableDataSource<ITable>([]);
   private columns: Map<string, string> = new Map<string, string>();
   private actions: Map<string, IAction> = new Map<string, IAction>();
-  readonly ADD: string = 'add';
+  readonly EDIT: string = 'edit';
   readonly DELETE: string = 'delete';
   readonly OPTIONS: string = 'options';
 
   constructor(private _liveAnnouncer: LiveAnnouncer) {
-    this.actions.set(this.ADD, { enabled: true });
+    this.actions.set(this.EDIT, { enabled: true });
     this.actions.set(this.DELETE, { enabled: true });
   }
 
@@ -70,11 +70,11 @@ export class TableComponent implements AfterViewInit {
     return new Map(this.columns);
   }
 
-  disableAdd() {
-    let addAction = this.actions.get(this.ADD)!;
-    addAction.enabled = false;
+  disableEdit() {
+    let editAction = this.actions.get(this.EDIT)!;
+    editAction.enabled = false;
 
-    this.actions.set(this.ADD, addAction);
+    this.actions.set(this.EDIT, editAction);
   }
 
   disableDelete() {
@@ -85,7 +85,7 @@ export class TableComponent implements AfterViewInit {
   }
 
   get hasActions() : boolean {
-    return this.actionEnabled(this.ADD) || this.actionEnabled(this.DELETE);
+    return this.actionEnabled(this.EDIT) || this.actionEnabled(this.DELETE);
   }
 
   actionEnabled(action: string): boolean {

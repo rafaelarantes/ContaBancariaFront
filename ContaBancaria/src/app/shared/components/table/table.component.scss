@@ -1,5 +1,33 @@
-table {
-    width: 100%;
+$max-height-table: 85vh;
+$max-height-table-diference: 0.7vh;
+$max-height-table-max-window: 985px;
+$max-height-table-diference-window: 40px;
+
+.table-container {
+  overflow: auto;
+  max-height: 100vh;
+
+  @for $i from 0 through round($max-height-table-max-window / $max-height-table-diference-window) {
+    @media (max-height: calc($max-height-table-max-window - $max-height-table-diference-window * $i)) { 
+      max-height: calc($max-height-table - $max-height-table-diference * ($i * 2) );
+    }
+  }
+}
+
+.table-container::-webkit-scrollbar   {
+  width: 10px;
+  height: 10px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background-color: rgba(228, 228, 228, 0.5);
+  border-radius: 100px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background: #7cc67c;
+  border: 6px solid rgba(0, 0, 0, 0.2);
 }
 
 .mat-mdc-row .mat-mdc-cell {
@@ -18,7 +46,7 @@ table {
   margin-left: 10%;
   overflow-y: auto;
 
-  @media (max-width: 365px) {
+  @media (max-width: 550px) {
     width: 90%;
     margin-left: 5%;
   }
@@ -26,10 +54,5 @@ table {
   @media (max-width: 325px) {
     width: 96%;
     margin-left: 2%;
-  }
-
-  @media (max-width: 325px) {
-    width: 100%;
-    margin-left: 0;
   }
 }
