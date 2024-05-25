@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,10 +17,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 export class DefaultLayoutComponent {
   titulo = '';
 
-  constructor(private autenticacaoService: AutenticacaoService) { }
+  constructor(private autenticacaoService: AutenticacaoService,
+              private location: Location
+  ) { }
 
   deslogar(){
     this.autenticacaoService.deslogar();
+  }
+
+  voltar() {
+    this.location.back();
+  }
+
+  get path(){
+    return this.location.path();
   }
 
 }

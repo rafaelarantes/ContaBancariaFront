@@ -1,11 +1,20 @@
 <div class="menu">
 	<mat-toolbar color="primary">
-		<div class="titulo">
-			<span class="titulo">{{ titulo }}</span>
+		<div class="esquerda">
+			@if(path){
+				<div>
+					<button mat-icon-button (click)="voltar()">
+						<mat-icon>arrow_back</mat-icon>
+					</button>
+				</div>
+			}
+			<div>
+				<span >{{ titulo }}</span>
+			</div>
 		</div>
-		<div class="logout">
+		<div class="direita">
 			<button mat-icon-button (click)="deslogar()">
-				<mat-icon class="logout">logout</mat-icon>
+				<mat-icon>logout</mat-icon>
 			</button>
 		</div>
 	</mat-toolbar>

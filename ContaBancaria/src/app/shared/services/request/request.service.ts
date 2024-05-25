@@ -13,4 +13,8 @@ export class RequestService {
   async post(url: string, data: any): Promise<any> {
     return this.httpClient.post<any>(environment.apiUrl + '/' + url, data).toPromise();
   }
+
+  async get(url: string): Promise<any> {
+    return this.httpClient.get<any>(environment.apiUrl + '/' + url).toPromise();
+  }
 }

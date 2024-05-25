@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './autenticacao/components/login/login.component';
 import { DefaultLayoutComponent } from './default-layout/default-layout.component';
 import { HomeComponent } from './home/home.component';
+import { BancoCentralComponent }  from './banco-central/componentes/banco-central/banco-central.component';
 import { ListarBancoCentralComponent } from './banco-central/componentes/listar-banco-central/listar-banco-central.component';
 import { CriarBancoCentralComponent} from './banco-central/componentes/criar-banco-central/criar-banco-central.component';
 import { ListarBancoComponent } from './banco/componentes/listar-banco/listar-banco.component';
@@ -18,13 +19,16 @@ export const routes: Routes = [
     { path: '', component: DefaultLayoutComponent, canActivate: [ autenticadoGuard ], 
         children: [
             { path: '', component: HomeComponent, canActivate: [ autenticadoGuard ]},
-            { path: 'banco-central', component: ListarBancoCentralComponent, canActivate: [ autenticadoGuard ],
+            { path: 'banco-central', component: BancoCentralComponent, canActivate: [ autenticadoGuard ],
                 children: [
-                    { path: 'criar', component: CriarBancoCentralComponent, canActivate: [ autenticadoGuard ] }
+                    { path: '', component: ListarBancoCentralComponent, canActivate: [ autenticadoGuard ] },
+                    { path: 'criar', component: CriarBancoCentralComponent, canActivate: [ autenticadoGuard ] },
+                    { path: 'alterar/:string', component: CriarBancoCentralComponent, canActivate: [ autenticadoGuard ]  }
             ]},
             { path: 'banco', component: ListarBancoComponent, canActivate: [ autenticadoGuard ],
                 children: [
-                { path: 'criar', component: CriarBancoComponent, canActivate: [ autenticadoGuard ] }
+                { path: 'criar', component: CriarBancoComponent, canActivate: [ autenticadoGuard ] },
+                { path: 'alterar/:string', component: CriarBancoComponent, canActivate: [ autenticadoGuard ] },
             ]},
             { path: 'conta', component: HomeContaComponent, canActivate: [ autenticadoGuard ],
                 children: [
@@ -36,4 +40,5 @@ export const routes: Routes = [
     },
     { path: '', component: LoginComponent, canActivate: [naoAutenticadoGuard] },
     { path: 'login', component: LoginComponent, canActivate: [naoAutenticadoGuard] },
+    { path: '', redirectTo: '/banco-central', pathMatch: 'full' },
 ];

@@ -19,7 +19,7 @@ export class AutenticacaoService {
 
 async logar(usuario: IUsuario) : Promise<any> {
   return new Promise((resolve, reject) => {
-    this.requestService.post("login", { Login: usuario.Email, Senha: usuario.Senha })
+    this.requestService.post("autenticacao/login", { Login: usuario.Email, Senha: usuario.Senha })
     .then((data) => {
     
       if(!data.resultado) {

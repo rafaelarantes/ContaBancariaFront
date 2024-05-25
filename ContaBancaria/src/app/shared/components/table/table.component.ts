@@ -28,6 +28,7 @@ export class TableComponent implements AfterViewInit {
   private dataSource = new MatTableDataSource<ITable>([]);
   private columns: Map<string, string> = new Map<string, string>();
   private actions: Map<string, IAction> = new Map<string, IAction>();
+
   readonly EDIT: string = 'edit';
   readonly DELETE: string = 'delete';
   readonly OPTIONS: string = 'options';
@@ -104,8 +105,9 @@ export class TableComponent implements AfterViewInit {
     }
   }
 
+
   edit(element: ITable) {
-    //this.router.navigate([ element.options ]);
+    this.router.navigate([`${ this.router.url }/alterar`, element.guid ]);
   }
 
   delete(element: ITable) {
