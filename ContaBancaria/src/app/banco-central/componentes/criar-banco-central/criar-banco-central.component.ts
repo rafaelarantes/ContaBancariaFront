@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { TituloService } from '../../../shared/services/titulo/titulo.service';
+
 @Component({
   selector: 'app-criar-banco-central',
   standalone: true,
@@ -8,5 +10,9 @@ import { Component } from '@angular/core';
   styleUrl: './criar-banco-central.component.scss'
 })
 export class CriarBancoCentralComponent {
+  constructor(tituloService: TituloService
+  ) {
+    tituloService.setTitulo('');
 
+  }
 }

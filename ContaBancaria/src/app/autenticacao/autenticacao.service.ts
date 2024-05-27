@@ -1,11 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 import { IUsuario } from './interfaces/iusuario';
-import { environment } from '../../environments/environment';
 import { RequestService } from '../shared/services/request/request.service';
 
 @Injectable({

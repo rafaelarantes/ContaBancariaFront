@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from '../shared/shared.module';
 
 import { AutenticacaoService } from '../autenticacao/autenticacao.service';
+import { TituloService } from '../shared/services/titulo/titulo.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,11 @@ export class HomeComponent {
   tituloCard = "Acesse";
 
   constructor(private autenticacaoService: AutenticacaoService,
-              private router: Router){}
+              private router: Router,
+              private tituloService: TituloService){
+    this.tituloService.setTitulo('Conta Bancária');
+
+  }
 
   estaAutorizado(autorizacao: string): boolean {
     if(!autorizacao){

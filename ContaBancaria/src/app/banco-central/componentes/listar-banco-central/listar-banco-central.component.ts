@@ -1,9 +1,11 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { TableComponent } from '../../../shared/components/table/table.component';
 import { BancoCentralService } from '../../banco-central.service';
+import { TituloService } from '../../../shared/services/titulo/titulo.service';
+import { AutenticacaoService } from '../../../autenticacao/autenticacao.service';
 
 @Component({
   selector: 'app-listar-banco-central',
@@ -18,8 +20,11 @@ export class ListarBancoCentralComponent implements AfterViewInit {
 
   constructor(private route: ActivatedRoute,
               private bancoCentralService: BancoCentralService,
-              private snackBar: MatSnackBar) {
+              private snackBar: MatSnackBar,
+              private tituloService: TituloService,
+              private autenticacaoService: AutenticacaoService) {
     this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    tituloService.setTitulo('Banco Central');
   }
 
   async ngAfterViewInit() {
@@ -38,6 +43,11 @@ export class ListarBancoCentralComponent implements AfterViewInit {
         this.snackBar.open('Falha ao listar bancos', 'Erro interno.', {
           duration: 3000
         });
+
+        if(error.status === 401){
+          this.autenticacaoService.deslogar();
+          window.location.reload();
+        }
       });
   }
 }
