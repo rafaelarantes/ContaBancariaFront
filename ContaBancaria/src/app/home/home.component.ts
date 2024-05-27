@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { SharedModule } from '../shared/shared.module';
 
-import { AutenticacaoService } from '../autenticacao/autenticacao.service';
+import { AutenticacaoService } from '../autenticacao/services/autenticacao.service';
 import { TituloService } from '../shared/services/titulo/titulo.service';
 import { BaseComponent } from '../shared/components/base/base.component';
 

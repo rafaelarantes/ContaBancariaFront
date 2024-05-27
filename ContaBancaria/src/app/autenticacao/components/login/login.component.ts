@@ -7,7 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
-import { AutenticacaoService } from '../../autenticacao.service';
+import { AutenticacaoService } from '../../services/autenticacao.service';
 import { IUsuario } from '../../interfaces/iusuario';
 import { SharedModule } from '../../../shared/shared.module';
 import { BaseComponent } from '../../../shared/components/base/base.component';

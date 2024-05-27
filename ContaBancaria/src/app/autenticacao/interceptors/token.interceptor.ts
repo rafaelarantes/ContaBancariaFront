@@ -1,8 +1,8 @@
 import { HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/http';
 import { inject } from '@angular/core';
 
-import { environment } from '../../environments/environment.development';
-import { AutenticacaoService } from './autenticacao.service';
+import { environment } from '../../../environments/environment.development';
+import { AutenticacaoService } from '../services/autenticacao.service';
 
 export const tokenInterceptor: HttpInterceptorFn = 
     (req: HttpRequest<unknown>, next: HttpHandlerFn) => {

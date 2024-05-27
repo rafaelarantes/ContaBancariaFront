@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { IUsuario } from './interfaces/iusuario';
-import { RequestService } from '../shared/services/request/request.service';
+import { IUsuario } from '../interfaces/iusuario';
+import { RequestService } from '../../shared/services/request/request.service';
 
 @Injectable({
   providedIn: 'root'

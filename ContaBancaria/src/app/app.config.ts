@@ -4,7 +4,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { routes } from './app.routes';
 
-import { tokenInterceptor } from './autenticacao/token.interceptor';
+import { tokenInterceptor } from './autenticacao/interceptors/token.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideAnimationsAsync(), 

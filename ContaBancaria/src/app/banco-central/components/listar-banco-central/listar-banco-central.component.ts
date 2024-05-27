@@ -2,10 +2,10 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { TableComponent } from '../../../shared/components/table/table.component';
-import { BancoCentralService } from '../../banco-central.service';
+import { TableComponent } from '../../../shared/components/table/component/table.component';
+import { BancoCentralService } from '../../services/banco-central.service';
 import { TituloService } from '../../../shared/services/titulo/titulo.service';
-import { AutenticacaoService } from '../../../autenticacao/autenticacao.service';
+import { AutenticacaoService } from '../../../autenticacao/services/autenticacao.service';
 import { BaseComponent } from '../../../shared/components/base/base.component';
 
 @Component({

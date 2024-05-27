@@ -1,4 +1,4 @@
-import { ITable } from "../shared/components/table/itable";
+import { ITable } from "../../shared/components/table/itable";
 
 export interface IBancoCentral extends ITable {
     guid: string;

@@ -5,7 +5,7 @@ import { HostListener } from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { AutenticacaoService } from '../autenticacao/autenticacao.service';
+import { AutenticacaoService } from '../autenticacao/services/autenticacao.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TituloService } from '../shared/services/titulo/titulo.service';
 
