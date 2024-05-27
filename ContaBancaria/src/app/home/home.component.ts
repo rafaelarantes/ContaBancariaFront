@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { AutenticacaoService } from '../autenticacao/autenticacao.service';
 import { TituloService } from '../shared/services/titulo/titulo.service';
+import { BaseComponent } from '../shared/components/base/base.component';
 
 @Component({
   selector: 'app-home',
@@ -14,12 +15,13 @@ import { TituloService } from '../shared/services/titulo/titulo.service';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent extends BaseComponent {
   tituloCard = "Acesse";
 
   constructor(private autenticacaoService: AutenticacaoService,
               private router: Router,
               private tituloService: TituloService){
+    super();
     this.tituloService.setTitulo('Conta Bancária');
 
   }

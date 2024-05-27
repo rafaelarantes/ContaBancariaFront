@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { AutenticacaoService } from '../../autenticacao.service';
 import { IUsuario } from '../../interfaces/iusuario';
 import { SharedModule } from '../../../shared/shared.module';
+import { BaseComponent } from '../../../shared/components/base/base.component';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ import { SharedModule } from '../../../shared/shared.module';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-export class LoginComponent {
+export class LoginComponent extends BaseComponent {
   formLogin: FormGroup;
   tituloCard = 'Login';
   hide = true;
@@ -31,6 +32,7 @@ export class LoginComponent {
               private autenticacaoService: AutenticacaoService,
               private snackBar: MatSnackBar
   ){
+    super();
     this.formLogin = this.formBuilder.group({});
   }
 
@@ -83,4 +85,3 @@ export class LoginComponent {
 
     }
   }
-

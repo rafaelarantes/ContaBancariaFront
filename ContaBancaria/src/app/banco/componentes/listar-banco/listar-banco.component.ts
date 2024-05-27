@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { BaseComponent } from '../../../shared/components/base/base.component';
+
 @Component({
   selector: 'app-listar-banco',
   standalone: true,
@@ -7,6 +9,6 @@ import { Component } from '@angular/core';
   templateUrl: './listar-banco.component.html',
   styleUrl: './listar-banco.component.scss'
 })
-export class ListarBancoComponent {
+export class ListarBancoComponent extends BaseComponent {
 
 }

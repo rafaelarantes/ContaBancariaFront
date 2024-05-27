@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { BaseComponent } from '../../../shared/components/base/base.component';
+
 @Component({
   selector: 'app-depositar-conta',
   standalone: true,
@@ -7,6 +9,6 @@ import { Component } from '@angular/core';
   templateUrl: './depositar-conta.component.html',
   styleUrl: './depositar-conta.component.scss'
 })
-export class DepositarContaComponent {
+export class DepositarContaComponent extends BaseComponent {
 
 }

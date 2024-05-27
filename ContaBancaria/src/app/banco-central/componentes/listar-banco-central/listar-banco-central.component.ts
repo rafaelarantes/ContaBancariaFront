@@ -6,6 +6,7 @@ import { TableComponent } from '../../../shared/components/table/table.component
 import { BancoCentralService } from '../../banco-central.service';
 import { TituloService } from '../../../shared/services/titulo/titulo.service';
 import { AutenticacaoService } from '../../../autenticacao/autenticacao.service';
+import { BaseComponent } from '../../../shared/components/base/base.component';
 
 @Component({
   selector: 'app-listar-banco-central',
@@ -14,7 +15,7 @@ import { AutenticacaoService } from '../../../autenticacao/autenticacao.service'
   templateUrl: './listar-banco-central.component.html',
   styleUrl: './listar-banco-central.component.scss',
 })
-export class ListarBancoCentralComponent implements AfterViewInit {
+export class ListarBancoCentralComponent extends BaseComponent implements AfterViewInit {
   @ViewChild(TableComponent) tableComponent: TableComponent = <TableComponent>{};
   returnUrl: string = '/';
 
@@ -23,6 +24,7 @@ export class ListarBancoCentralComponent implements AfterViewInit {
               private snackBar: MatSnackBar,
               private tituloService: TituloService,
               private autenticacaoService: AutenticacaoService) {
+    super();
     this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     tituloService.setTitulo('Banco Central');
   }

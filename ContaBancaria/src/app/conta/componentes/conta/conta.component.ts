@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { BaseComponent } from '../../../shared/components/base/base.component';
+
 @Component({
   selector: 'app-conta',
   standalone: true,
@@ -7,6 +9,6 @@ import { Component } from '@angular/core';
   templateUrl: './conta.component.html',
   styleUrl: './conta.component.scss'
 })
-export class ContaComponent {
+export class ContaComponent extends BaseComponent {
 
 }
