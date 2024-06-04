@@ -3,11 +3,9 @@ import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } 
 
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
-import { AutenticacaoService } from '../../services/autenticacao.service';
 import { IUsuario } from '../../interfaces/iusuario';
 import { SharedModule } from '../../../shared/shared.module';
 import { BaseComponent } from '../../../shared/components/base/base.component';
@@ -28,10 +26,7 @@ export class LoginComponent extends BaseComponent {
     Senha: ''
   }
 
-  constructor(private formBuilder: FormBuilder,
-              private autenticacaoService: AutenticacaoService,
-              private snackBar: MatSnackBar
-  ){
+  constructor(private formBuilder: FormBuilder){
     super();
     this.formLogin = this.formBuilder.group({});
   }
@@ -71,17 +66,6 @@ export class LoginComponent extends BaseComponent {
       var usuario = this.formLogin.getRawValue() as IUsuario;
       let retorno = this.autenticacaoService.logar(usuario);
 
-      retorno.then((data) => {
-        if(!data.resultado){
-          this.snackBar.open('Falha na autenticação', data['mensagens'].join(', '), {
-            duration: 3000
-          });
-        }
-      }).catch((error) => {
-        this.snackBar.open('Falha na autenticação', 'Erro interno.', {
-          duration: 3000
-        });
-      })
-
+      this.processReturn(retorno);
     }
   }

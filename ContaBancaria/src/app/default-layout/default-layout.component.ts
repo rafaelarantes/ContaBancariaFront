@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Location } from '@angular/common';
 import { HostListener } from '@angular/core';
@@ -10,6 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { TituloService } from '../shared/services/titulo/titulo.service';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-default-layout',
   standalone: true,
   imports: [ RouterOutlet, MatButtonModule, MatIconModule, MatToolbarModule ],

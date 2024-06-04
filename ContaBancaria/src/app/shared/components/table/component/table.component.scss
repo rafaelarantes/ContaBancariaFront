@@ -2,14 +2,19 @@ $max-height-table: 85vh;
 $max-height-table-diference: 0.7vh;
 $max-height-table-max-window: 985px;
 $max-height-table-diference-window: 40px;
+$max-height: 100vh;
 
 .table-container {
   overflow: auto;
-  max-height: 100vh;
+  max-height: $max-height;
+  min-height: $max-height;
 
   @for $i from 0 through round($max-height-table-max-window / $max-height-table-diference-window) {
     @media (max-height: calc($max-height-table-max-window - $max-height-table-diference-window * $i)) { 
-      max-height: calc($max-height-table - $max-height-table-diference * ($i * 2) );
+      $max-height: calc($max-height-table - $max-height-table-diference * ($i * 2) );
+      
+      max-height: $max-height;
+      min-height: $max-height;
     }
   }
 }

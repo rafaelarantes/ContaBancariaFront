@@ -18,8 +18,7 @@ import { BaseComponent } from '../shared/components/base/base.component';
 export class HomeComponent extends BaseComponent {
   tituloCard = "Acesse";
 
-  constructor(private autenticacaoService: AutenticacaoService,
-              private router: Router,
+  constructor(private router: Router,
               private tituloService: TituloService){
     super();
     this.tituloService.setTitulo('Conta Bancária');

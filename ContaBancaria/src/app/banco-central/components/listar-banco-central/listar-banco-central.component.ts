@@ -1,11 +1,9 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { TableComponent } from '../../../shared/components/table/component/table.component';
 import { BancoCentralService } from '../../services/banco-central.service';
 import { TituloService } from '../../../shared/services/titulo/titulo.service';
-import { AutenticacaoService } from '../../../autenticacao/services/autenticacao.service';
 import { BaseComponent } from '../../../shared/components/base/base.component';
 
 @Component({
@@ -21,9 +19,7 @@ export class ListarBancoCentralComponent extends BaseComponent implements AfterV
 
   constructor(private route: ActivatedRoute,
               private bancoCentralService: BancoCentralService,
-              private snackBar: MatSnackBar,
-              private tituloService: TituloService,
-              private autenticacaoService: AutenticacaoService) {
+              private tituloService: TituloService) {
     super();
     this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     tituloService.setTitulo('Banco Central');
@@ -36,20 +32,7 @@ export class ListarBancoCentralComponent extends BaseComponent implements AfterV
     columns.set('numero', 'Número');
     this.tableComponent.setColumns = columns;
 
-    this.bancoCentralService
-      .listagem()
-      .then((data) => {
-        this.tableComponent.setData = data;
-      })
-      .catch((error) => {
-        this.snackBar.open('Falha ao listar bancos', 'Erro interno.', {
-          duration: 3000
-        });
-
-        if(error.status === 401){
-          this.autenticacaoService.deslogar();
-          window.location.reload();
-        }
-      });
+    let returno = this.bancoCentralService.listagem();
+    this.processReturn(returno, (data) => this.tableComponent.setData = data.data);
   }
 }
