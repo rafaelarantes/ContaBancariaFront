@@ -1,0 +1,76 @@
+
+
+.listing-container {
+    .listing-options {
+        display: flex;
+        margin-top: 0.5%;
+
+        .listing-search {
+            width: 50%;
+            margin-left: 10%;
+            display: flex;
+            align-items: center;
+            height: var(--mdc-filled-button-container-height);
+
+            .listing-btn-adicionar {
+                background-color: #3b873b;
+                height: 100%;
+            }
+
+            mat-form-field {
+                height: 100%;
+                width: 40%;
+            }
+        }
+
+        .listing-add {
+            width: 50%;
+            display: flex;
+            justify-content: end;
+            margin-right: 10%;
+    
+            button {
+                background-color: #3b873b;
+            }
+        }
+    }
+}
+
+::ng-deep .listing-search .mat-mdc-form-field-subscript-wrapper {
+    display: none;
+}
+
+::ng-deep .listing-search .mat-icon {
+    margin: 0 !important;
+}
+
+::ng-deep .listing-search  .mat-mdc-form-field-infix {
+    padding: 0 !important;
+    min-height: auto;
+
+    input {
+        height: var(--mdc-filled-button-container-height) !important;
+    }
+}
+
+::ng-deep .listing-search .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+    border-bottom-color: #3b873b;
+}
+
+::ng-deep .listing-search .mat-mdc-form-field-infix {
+    width: 87%;
+    height: 100%;
+}
+
+::ng-deep .listing-search .mat-mdc-form-field-icon-suffix {
+    width: 13%;
+    height: 100%;
+
+    button {
+        padding: 0;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+    }
+}

@@ -20,12 +20,22 @@ export abstract class BaseComponent {
     this.autenticacaoService = inject(AutenticacaoService);
   }
 
-  processReturn(promise: Promise<any>, then: (data: any) => void = ({}) => {},
-                catchError: (error: any) => void = ({}) => {}, message: string = 'Erro interno.'){
+  processReturn(promise: Promise<any>, 
+                columnDescriptionName: string = '',
+                then: (data: any) => void = ({}) => {},
+                catchError: (error: any) => void = ({}) => {}, 
+                message: string = 'Erro interno.'){
     promise.then((data) => {
                 if(!data.resultado){
                   this.snackBar.open('Ocorreu um erro', data['mensagens'].join(', '), {
                     duration: 3000
+                  });
+                }
+                
+                if(columnDescriptionName) {
+                  data.data.map((d: { [x: string]: any; description: any; }) => {
+                    d.description = d[columnDescriptionName];
+                    delete d[columnDescriptionName];
                   });
                 }
 

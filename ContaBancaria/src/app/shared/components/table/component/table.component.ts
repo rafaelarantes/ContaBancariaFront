@@ -37,6 +37,10 @@ export class TableComponent implements AfterViewInit {
               private router: Router) {
     this.actions.set(this.EDIT, { enabled: true });
     this.actions.set(this.DELETE, { enabled: true });
+
+    this.dataSource.filterPredicate = function(data, filter: string): boolean {
+      return data.description.toLowerCase().includes(filter.toLowerCase());
+    };
   }
 
   async ngAfterViewInit() {
@@ -105,12 +109,15 @@ export class TableComponent implements AfterViewInit {
     }
   }
 
-
   edit(element: ITable) {
     this.router.navigate([`${ this.router.url }/alterar`, element.guid ]);
   }
 
   delete(element: ITable) {
     
+  }
+
+  filter(value: string) {
+    this.dataSource.filter = value;
   }
 }

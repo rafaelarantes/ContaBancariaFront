@@ -1,0 +1,33 @@
+<div class="listing-container">
+    <div class="listing-options">
+        <div class="listing-search">
+            <mat-form-field>
+                    <input matInput placeholder="Procurar..." [(ngModel)]="search" (keydown.enter)="filter()">
+                
+                    @if (search) {
+                        <button class="clear-search" matSuffix mat-icon-button aria-label="Limpar" (click)="search=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+
+                    }
+
+            </mat-form-field>
+
+            <button class="listing-btn-adicionar" mat-flat-button color="primary" aria-label="Adicionar" (click)="filter()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </div>
+        
+        <div class="listing-add">
+            <button mat-flat-button color="primary" aria-label="Adicionar">
+                <mat-icon>add</mat-icon> Adicionar
+            </button>
+        </div>
+    </div>
+    
+    
+    <div class="listar-table">
+        <app-table></app-table>
+    </div>
+</div>
+
