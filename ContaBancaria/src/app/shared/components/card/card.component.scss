@@ -1,3 +1,6 @@
+@use '@angular/material' as mat;
+@use '../../../../styles.scss';
+
 div {
     display: flex;
     justify-content: center;
@@ -36,7 +39,7 @@ div {
   
     .shared-card__label{
         text-align: center;
-        background-color: #3b873b;
+        background-color: mat.get-color-from-palette(styles.$ContaBancaria-primary, default);
         color: white;
         font-size: large;
     }

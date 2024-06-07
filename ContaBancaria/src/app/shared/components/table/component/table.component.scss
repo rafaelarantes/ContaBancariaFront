@@ -1,3 +1,6 @@
+@use '@angular/material' as mat;
+@use '../../../../../styles.scss';
+
 $max-height-table: 80vh;
 $max-height-table-diference: 0.7vh;
 $max-height-table-max-window: 985px;
@@ -31,7 +34,7 @@ $max-height: 100vh;
 
 .table-container::-webkit-scrollbar-thumb {
   border-radius: 100px;
-  background: #7cc67c;
+  background-color: mat.get-color-from-palette(styles.$ContaBancaria-primary, 400);
   border: 6px solid rgba(0, 0, 0, 0.2);
 }
 

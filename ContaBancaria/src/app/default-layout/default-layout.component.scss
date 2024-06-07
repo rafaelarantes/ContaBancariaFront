@@ -1,3 +1,6 @@
+@use '@angular/material' as mat;
+@use '../../styles.scss';
+
 .menu {
     position: absolute;
     top: 0;
@@ -10,7 +13,7 @@
     flex-direction: row;
     justify-content: space-between;
     top: 0;
-    background-color: #7cc67c;
+    background-color: mat.get-color-from-palette(styles.$ContaBancaria-primary, 400);
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     -webkit-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     -moz-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;

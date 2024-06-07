@@ -13,7 +13,6 @@
             height: var(--mdc-filled-button-container-height);
 
             .listing-btn-adicionar {
-                background-color: #3b873b;
                 height: 100%;
             }
 
@@ -28,10 +27,6 @@
             display: flex;
             justify-content: end;
             margin-right: 10%;
-    
-            button {
-                background-color: #3b873b;
-            }
         }
     }
 }
@@ -51,10 +46,6 @@
     input {
         height: var(--mdc-filled-button-container-height) !important;
     }
-}
-
-::ng-deep .listing-search .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
-    border-bottom-color: #3b873b;
 }
 
 ::ng-deep .listing-search .mat-mdc-form-field-infix {
