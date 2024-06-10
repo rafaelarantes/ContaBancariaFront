@@ -1,25 +1,27 @@
-<div class="menu">
-	<mat-toolbar color="primary">
-		<div class="esquerda">
-			@if(path){
+<div class="container">
+	<div class="menu">
+		<mat-toolbar color="primary">
+			<div class="esquerda">
+				@if(path){
+					<div>
+						<button mat-icon-button (click)="voltar()">
+							<mat-icon>arrow_back</mat-icon>
+						</button>
+					</div>
+				}
 				<div>
-					<button mat-icon-button (click)="voltar()">
-						<mat-icon>arrow_back</mat-icon>
-					</button>
+					<span >{{ titulo }}</span>
 				</div>
-			}
-			<div>
-				<span >{{ titulo }}</span>
 			</div>
-		</div>
-		<div class="direita">
-			<button mat-icon-button (click)="deslogar()">
-				<mat-icon>logout</mat-icon>
-			</button>
-		</div>
-	</mat-toolbar>
-</div>
-
-<div class="conteudo">
-	<router-outlet></router-outlet>
+			<div class="direita">
+				<button mat-icon-button (click)="deslogar()">
+					<mat-icon>logout</mat-icon>
+				</button>
+			</div>
+		</mat-toolbar>
+	</div>
+	
+	<div class="content">
+		<router-outlet></router-outlet>
+	</div>
 </div>
