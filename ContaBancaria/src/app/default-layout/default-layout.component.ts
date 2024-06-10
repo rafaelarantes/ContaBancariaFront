@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Location } from '@angular/common';
+import { Location, NgClass } from '@angular/common';
 import { HostListener } from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -13,18 +13,18 @@ import { TituloService } from '../shared/services/titulo/titulo.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-default-layout',
   standalone: true,
-  imports: [ RouterOutlet, MatButtonModule, MatIconModule, MatToolbarModule ],
+  imports: [ RouterOutlet, MatButtonModule, MatIconModule, MatToolbarModule, NgClass ],
   templateUrl: './default-layout.component.html',
   styleUrl: './default-layout.component.scss'
 })
 export class DefaultLayoutComponent {
-  titulo = '';
+  title = '';
 
   constructor(private autenticacaoService: AutenticacaoService,
               private location: Location,
               public tituloService: TituloService) {
-    this.tituloService.titulo$.subscribe(titulo => {
-      this.titulo = titulo;
+    this.tituloService.titulo$.subscribe(title => {
+      this.title = title;
     });
   }
 
