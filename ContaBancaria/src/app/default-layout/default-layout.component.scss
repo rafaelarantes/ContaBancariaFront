@@ -20,7 +20,6 @@
     .menu mat-toolbar {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
         top: 0;
         background-color: mat.get-color-from-palette(styles.$ContaBancaria-primary, 400);
         box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -29,19 +28,62 @@
         height: 100%;
     }
     
-    .menu .esquerda {
+    .menu .left, .menu .right {
+        display: flex;
+        align-items: center;
+
+        button {
+            display: flex;
+            align-items: center;
+        }
+
+        @media (max-width: 260px) {
+            button {
+                padding: 0;
+                width: 20px;
+                
+                mat-icon {
+                    font-size: smaller;
+                }
+            }
+        }
+
+        @media (max-width: 190px) {
+            button {
+                align-items: end;
+            }
+        }
+    }
+
+    .menu .left {
+        width: auto;
+        justify-content: left;
+
+        @media (max-width: 260px) {
+            width: 50%;
+        }
+    }
+
+    .menu .right {
+        width: 50%;
+        justify-content: right;
+    }
+
+    .menu .center {
         width: 50%;
         display: flex;
         justify-content: left;
         align-items: center;
+        height: 100%;
     
-    }
-    
-    .menu .direita {
-        width: 50%;
-        display: flex;
-        justify-content: right;
-        align-items: center;
+        @media (max-width: 260px) {
+            justify-content: center;
+            font-size: smaller;
+        }
+
+        @media (max-width: 190px) {
+            align-items: baseline;
+        }
     }
     
     .menu .mat-icon {
