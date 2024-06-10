@@ -4,13 +4,33 @@
     .listing-options {
         display: flex;
         margin-top: 0.5%;
+        width: 80%;
+        margin-left: 10%;
+
+        @media (max-width: 550px) {
+            width: 90%;
+            margin-left: 5%;
+        }
+
+        @media (max-width: 450px) {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+        
+        @media (max-width: 325px) {
+            width: 96%;
+            margin-left: 2%;
+        }
 
         .listing-search {
             width: 50%;
-            margin-left: 10%;
             display: flex;
             align-items: center;
             height: var(--mdc-filled-button-container-height);
+
+            @media (max-width: 450px) {
+                justify-content: center;
+            }
 
             .listing-btn-adicionar {
                 height: 100%;
@@ -18,7 +38,9 @@
 
             mat-form-field {
                 height: 100%;
-                width: 40%;
+                width: 50%;
+                max-width: 15em;
+                min-width: 10em;
             }
         }
 
@@ -26,7 +48,11 @@
             width: 50%;
             display: flex;
             justify-content: end;
-            margin-right: 10%;
+
+            @media (max-width: 450px) {
+                height: 2.5em;
+                justify-content: center;
+            }
         }
     }
 }
