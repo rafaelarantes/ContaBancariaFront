@@ -7,37 +7,6 @@ $max-height-table-max-window: 985px;
 $max-height-table-diference-window: 40px;
 $max-height: 100vh;
 
-.table-container {
-  overflow: auto;
-  max-height: $max-height;
-  min-height: $max-height;
-
-  @for $i from 0 through round($max-height-table-max-window / $max-height-table-diference-window) {
-    @media (max-height: calc($max-height-table-max-window - $max-height-table-diference-window * $i)) { 
-      $max-height: calc($max-height-table - $max-height-table-diference * ($i * 2) );
-      
-      max-height: $max-height;
-      min-height: $max-height;
-    }
-  }
-}
-
-.table-container::-webkit-scrollbar   {
-  width: 10px;
-  height: 10px;
-}
-
-.table-container::-webkit-scrollbar-track {
-  background-color: rgba(228, 228, 228, 0.5);
-  border-radius: 100px;
-}
-
-.table-container::-webkit-scrollbar-thumb {
-  border-radius: 100px;
-  background-color: mat.get-color-from-palette(styles.$ContaBancaria-primary, 400);
-  border: 6px solid rgba(0, 0, 0, 0.2);
-}
-
 .mat-mdc-row .mat-mdc-cell {
     border-bottom: 1px solid transparent;
     border-top: 1px solid transparent;
@@ -48,11 +17,12 @@ $max-height: 100vh;
     border-color: currentColor;
   }
   
-.tabela-listagem {
+.table-page {
   margin-top: 1rem;
   width: 80%;
   margin-left: 10%;
   overflow-y: auto;
+  margin-bottom: 2%;
 
   @media (max-width: 550px) {
     width: 90%;
@@ -62,6 +32,81 @@ $max-height: 100vh;
   @media (max-width: 325px) {
     width: 96%;
     margin-left: 2%;
+  }
+
+  .table-container {
+    overflow: auto;
+    max-height: 580px;
+    height: $max-height;
+  
+    @for $i from 0 through round($max-height-table-max-window / $max-height-table-diference-window) {
+      $media-max-height: calc($max-height-table-max-window - $max-height-table-diference-window * $i);
+      
+      @media (max-height: $media-max-height) { 
+  
+        @if($media-max-height < 300px){
+          $max-height: calc($max-height-table - $max-height-table-diference * ($i * 3) );
+    
+          height: $max-height;
+          min-height: 110px;
+        }
+        @else if($media-max-height < 480px){
+          $max-height: calc($max-height-table - $max-height-table-diference * ($i * 2.5) );
+  
+          height: $max-height;
+        }
+        @else {
+          $max-height: calc($max-height-table - $max-height-table-diference * ($i * 2) );
+  
+          height: $max-height;
+        }
+      }
+    }
+  
+    @media (max-width: 460px) { 
+      th, tr {
+        font-size: smaller;
+  
+        th, td {
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+      }
+    }
+
+    td.mat-column-options {
+      div {
+        display: flex;
+    
+        > div {
+          width: 3em;
+    
+          @media (max-width: 460px) { 
+            width: 2em;
+    
+            i {
+              font-size: medium;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .table-container::-webkit-scrollbar   {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background-color: rgba(228, 228, 228, 0.5);
+    border-radius: 100px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: mat.get-color-from-palette(styles.$ContaBancaria-primary, 400);
+    border: 6px solid rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -79,13 +124,5 @@ $max-height: 100vh;
   display: contents;
 }
 
-td.mat-column-options {
-  div {
-    display: flex;
 
-    > div {
-      width: 3em;
-    }
-  }
-}
 
