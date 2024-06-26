@@ -1,38 +1,9 @@
 <app-card [titulo]="tituloCard">
     <form [formGroup]="formLogin" novalidate>
-
-      <div class="email">
-        <mat-form-field>
-          <mat-label>E-mail</mat-label>
-          <input matInput
-                placeholder="nome@email.com"
-                formControlName="Email"
-                (blur)="atualizarMensagemErroEmail()"
-                required>
-                @if (formLogin.get('Email')?.invalid) {
-                  <mat-error>{{ mensagemErro.Email }}</mat-error>
-                }
-        </mat-form-field>
-
-
-      </div>
-
-      <div class="senha">
-        <mat-form-field >
-          <mat-label>Senha</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'"
-                (blur)="atualizarMensagemErroSenha()"
-                formControlName="Senha">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-          @if (formLogin.get('Senha')?.invalid) {
-            <mat-error>{{ mensagemErro.Senha }}</mat-error>
-          }
-        </mat-form-field>
-
-
-      </div>
+      
+      <app-email-input formControlName="email"></app-email-input>
+      
+      <app-password-input formControlName="password"></app-password-input>
 
       <div class="entrar">
         <button mat-stroked-button color="primary" class="full" (click)="logar()">Entrar</button>

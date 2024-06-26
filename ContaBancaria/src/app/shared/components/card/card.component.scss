@@ -5,7 +5,7 @@ div {
     display: flex;
     justify-content: center;
 
-    .shared-card {
+    .card {
         flex-direction: column;
         width: 30%;
         border-radius: var(--mdc-elevated-card-container-shape);
@@ -35,16 +35,24 @@ div {
         @media (max-width: 350px) {
             width: 80%;
         }
+
+        @media (max-width: 200px) {
+            width: 90%;
+        }
     }
   
-    .shared-card__label{
+    .card__label{
         text-align: center;
         background-color: mat.get-color-from-palette(styles.$ContaBancaria-primary, default);
         color: white;
         font-size: large;
+
+        @media (max-width: 400px) {
+            font-size: medium;
+        }
     }
     
-    .shared-card__content {
+    .card__content {
         flex-direction: column;
         align-items: center;
     }

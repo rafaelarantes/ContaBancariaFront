@@ -1,0 +1,107 @@
+::ng-deep mat-form-field {
+    width: 100%;
+}
+    
+@mixin input__size {
+    width: 60%;
+
+    @media (min-width: 1100px) {
+        width: 300px;
+    }
+
+    @media (max-width: 1100px) {
+        width: 80%;
+    }
+
+    @media (max-width: 800px) {
+        width: 85%;
+    }
+
+    @media (max-width: 570px) {
+        width: 90%;
+    }
+}
+
+@mixin input__color {
+    > div {
+        width: 100%;
+    
+        .mat-mdc-text-field-wrapper {
+            background-color: white !important;
+            box-shadow: var(--mdc-elevated-card-container-elevation);
+        }
+    
+        .mat-mdc-text-field-wrapper:hover {
+            border-color: red;
+        }
+    
+        .mat-mdc-form-field-focus-overlay {
+            opacity: 0 !important;
+        }
+    }
+}
+
+@mixin input__font {
+    .mat-mdc-form-field-error-wrapper {
+        padding-left: 3px;
+    }
+
+    mat-error {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    @media (max-width: 400px) {
+        mat-label  {
+            font-size: smaller !important;
+        }
+
+        input {
+            font-size: large !important;
+        }
+    }
+
+    @media (max-width: 200px) {
+        mat-label  {
+            font-size: small !important;
+        }
+
+        input {
+            font-size: small !important;
+        }
+
+        .mat-mdc-text-field-wrapper {
+            padding: 0;
+        }
+    }
+
+}
+
+@mixin input__icon-sufix {
+    @media (max-width: 400px) {
+        mat-icon {
+            font-size: large !important;
+        }
+    }
+
+    @media (max-width: 200px) {
+        mat-icon {
+            font-size: medium !important;
+        }
+    }
+
+    .mat-mdc-form-field-icon-suffix { 
+        padding: 0 4 0 4px;
+        button {
+            background-color: transparent !important;
+            border: 0 !important; 
+        }
+    }
+
+    .mat-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

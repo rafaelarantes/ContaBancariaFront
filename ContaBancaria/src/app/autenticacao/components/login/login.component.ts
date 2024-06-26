@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
@@ -9,63 +9,35 @@ import { MatIconModule } from '@angular/material/icon';
 import { IUsuario } from '../../interfaces/iusuario';
 import { SharedModule } from '../../../shared/shared.module';
 import { BaseComponent } from '../../../shared/components/base/base.component';
+import { InputModule } from '../../../shared/components/input/input.module'
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ FormsModule, ReactiveFormsModule, MatCardModule, MatInputModule, MatButtonModule, MatIconModule, SharedModule ],
+  imports: [ FormsModule, ReactiveFormsModule, MatCardModule, MatInputModule, MatButtonModule, MatIconModule, SharedModule, InputModule ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent extends BaseComponent {
+  
   formLogin: FormGroup;
   tituloCard = 'Login';
-  hide = true;
-  mensagemErro = {
-    Email: '',
-    Senha: ''
-  }
 
   constructor(private formBuilder: FormBuilder){
     super();
-    this.formLogin = this.formBuilder.group({});
-  }
-
-  ngOnInit(): void {
+    
     this.formLogin = this.formBuilder.group({
-      Email: ['', [Validators.required, Validators.email]],
-      Senha: ['', [Validators.required]]
+      email: [''],
+      password: ['']
     });
   }
 
-  atualizarMensagemErroEmail() {
-    if (this.formLogin.get('Email')?.hasError('required')) {
-      this.mensagemErro.Email = 'Obrigatório';
-    } else if (this.formLogin.get('Email')?.hasError('email')) {
-      this.mensagemErro.Email = 'E-mail inválido';
-    } else {
-      this.mensagemErro.Email = '';
-    }
-  }
-
-  atualizarMensagemErroSenha() {
-    if (this.formLogin.get('Senha')?.hasError('required')) {
-      this.mensagemErro.Senha = 'Obrigatório';
-    } else { 
-      this.mensagemErro.Senha = '';
-    }
-  }
-
   logar(){
-      if(this.formLogin.invalid) {
-        this.atualizarMensagemErroEmail();
-        this.atualizarMensagemErroSenha();
-        
-        return;
+      if(this.formLogin.valid) {
+        var usuario = this.formLogin.getRawValue() as IUsuario;
+        let retorno = this.autenticacaoService.logar(usuario);
+  
+        this.processReturn(retorno);
       }
-      var usuario = this.formLogin.getRawValue() as IUsuario;
-      let retorno = this.autenticacaoService.logar(usuario);
-
-      this.processReturn(retorno);
     }
   }

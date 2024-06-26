@@ -1,0 +1,12 @@
+<div class="email">
+    <mat-form-field>
+      <mat-label>E-mail</mat-label>
+      <input matInput
+            placeholder="nome@email.com"
+            [formControl]="control"
+zxczxc            required>
+            @if (control.invalid) {
+              <mat-error>{{ getErrorMessage() }}</mat-error>
+            } 
+    </mat-form-field>
+</div>
