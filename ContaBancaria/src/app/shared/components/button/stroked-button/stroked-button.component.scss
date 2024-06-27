@@ -1,0 +1,12 @@
+@media (max-width: 600px) {
+    
+    button {
+        width: 90%;
+    }
+}
+
+@media (min-width: 600px) {
+    button {
+        min-width: 10rem;
+    }
+}

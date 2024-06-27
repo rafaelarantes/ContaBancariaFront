@@ -1,20 +1,17 @@
-import { Component, ViewChild } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
-
+import { Component } from '@angular/core';
+import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 
 import { IUsuario } from '../../interfaces/iusuario';
 import { SharedModule } from '../../../shared/shared.module';
 import { BaseComponent } from '../../../shared/components/base/base.component';
 import { InputModule } from '../../../shared/components/input/input.module'
+import { ButtonModule } from '../../../shared/components/button/button.module';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ FormsModule, ReactiveFormsModule, MatCardModule, MatInputModule, MatButtonModule, MatIconModule, SharedModule, InputModule ],
+  imports: [ FormsModule, ReactiveFormsModule, MatCardModule, SharedModule, InputModule, ButtonModule ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -32,7 +29,7 @@ export class LoginComponent extends BaseComponent {
     });
   }
 
-  logar(){
+  login(){
       if(this.formLogin.valid) {
         var usuario = this.formLogin.getRawValue() as IUsuario;
         let retorno = this.autenticacaoService.logar(usuario);

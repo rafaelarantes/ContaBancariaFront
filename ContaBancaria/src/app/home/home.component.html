@@ -2,19 +2,19 @@
   <app-card [titulo]="tituloCard">
     @if(estaAutorizado('BancoCentral')){
       <div class="opcao">
-        <button mat-stroked-button color="primary" (click)="acessar('banco-central')">Banco Central</button>
+        <app-stroked-button (buttonClick)="acessar('banco-central')" text="Banco Central"></app-stroked-button>
       </div>
     }
 
     @if(estaAutorizado('Banco')){
       <div class="opcao">
-        <button mat-stroked-button color="primary" (click)="acessar('banco')">Banco</button>
+        <app-stroked-button (buttonClick)="acessar('banco')" text="Banco"></app-stroked-button>
       </div>
     }
 
     @if(estaAutorizado('Conta')){
       <div class="opcao">
-        <button mat-stroked-button color="primary" (click)="acessar('conta')">Conta</button>
+        <app-stroked-button (buttonClick)="acessar('conta')" text="Conta"></app-stroked-button>
       </div>
     }
   </app-card>

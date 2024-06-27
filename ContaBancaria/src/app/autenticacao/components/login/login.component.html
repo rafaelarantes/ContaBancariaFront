@@ -5,9 +5,8 @@
       
       <app-password-input formControlName="password"></app-password-input>
 
-      <div class="entrar">
-        <button mat-stroked-button color="primary" class="full" (click)="logar()">Entrar</button>
-      </div>
-  </form>
+      <app-stroked-button (buttonClick)="login()" text="Entrar"></app-stroked-button>
+
+    </form>
 
 </app-card>
