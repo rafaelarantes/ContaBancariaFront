@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { SharedModule } from '../shared/shared.module';
-
+import { CardModule } from '../shared/components/card/card.module';
 import { TituloService } from '../shared/services/titulo/titulo.service';
 import { BaseComponent } from '../shared/components/base/base.component';
 import { ButtonModule } from '../shared/components/button/button.module';
@@ -10,7 +9,7 @@ import { ButtonModule } from '../shared/components/button/button.module';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ SharedModule, ButtonModule ],
+  imports: [  CardModule, ButtonModule ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

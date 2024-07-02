@@ -1,24 +1,7 @@
-
-    .opcao {
-        padding-top: 0.3rem;
-        padding-bottom: 0.3rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-
-        @media (max-width: 600px) {
-    
-            button {
-                width: 90%;
-            }
-        }
-    
-        @media (min-width: 600px) {
-            button {
-                min-width: 10rem;
-            }
-        }
-
-    }
-
-
+.opcao {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
