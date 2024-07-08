@@ -1,0 +1,43 @@
+@import '../sass/input.scss';
+
+::ng-deep app-search-input {
+    @include input__color;
+}
+
+:host {
+    display: flex;
+    height: var(--mdc-filled-button-container-height);
+
+    @media (max-width: 450px) {
+        justify-content: center;
+    }
+
+    .btn-filter {
+        height: 100%;
+        min-width: 50px;
+
+        @media (max-width: 400px) {
+            mat-icon {
+                font-size: medium;
+            }
+        }
+
+        @media (max-width: 150px) {
+            display: none;
+        }
+    }
+
+    mat-form-field {
+        height: 100%;
+        max-width: 15em;
+        min-width: 10em;
+
+        @media (max-width: 400px) {
+            min-width: 6em;
+        }
+
+        @media (max-width: 220px) {
+            min-width: 6em;
+        }
+    }
+}

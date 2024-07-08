@@ -42,7 +42,7 @@ export abstract class BaseComponent {
                 then(data);
               })
             .catch((error) => {
-              this.snackBar.open('Ocorreu um erro', message, {
+              this.snackBar.open('Ocorreu um erro'+ error, message, {
                 duration: 3000
               });
 

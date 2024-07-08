@@ -24,12 +24,16 @@ export class ListarBancoCentralComponent extends BaseComponent implements AfterV
 
   async ngAfterViewInit() {
     this.listingComponent.setColumn('description', 'Nome');
-    this.listingComponent.setColumn('numero', 'Número');
     this.listingComponent.setColumn('agencia', 'Agência');
     this.listingComponent.updateColumns();
 
     let returno = this.bancoCentralService.listagem();
     this.processReturn(returno, 'nome', (data) => {
+      data.data.map((banco: {  numero: string; description: string; }) => {
+        banco.numero = banco.numero.toString().padStart(3, '0');
+        banco.description =  `${banco.numero} - ${banco.description}`;
+      });
+
       this.listingComponent.setData = data.data
     });
   }

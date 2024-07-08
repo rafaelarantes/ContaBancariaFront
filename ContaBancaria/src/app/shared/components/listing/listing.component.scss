@@ -29,18 +29,15 @@
             height: var(--mdc-filled-button-container-height);
 
             @media (max-width: 450px) {
-                justify-content: center;
+                width: 60%;
             }
 
-            .listing-btn-adicionar {
-                height: 100%;
+            @media (max-width: 280px) {
+                width: 80%;
             }
 
-            mat-form-field {
-                height: 100%;
-                width: 50%;
-                max-width: 15em;
-                min-width: 10em;
+            @media (max-width: 200px) {
+                width: 100%;
             }
         }
 
@@ -49,9 +46,25 @@
             display: flex;
             justify-content: end;
 
+            button {
+                min-width: 50px;
+            }
+
             @media (max-width: 450px) {
                 height: 2.5em;
                 justify-content: center;
+            }
+
+            @media (max-width: 250px) {
+                label {
+                    display: none;
+                }
+
+                mat-icon {
+                    margin: 0;
+                }
+
+
             }
         }
     }

@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './search-input.component.scss'
 })
 export class SearchInputComponent {
+  search: string = '';
 
+  filter() {
+    
+  }
 }

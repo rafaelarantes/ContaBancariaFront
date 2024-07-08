@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 
 import { TableComponent } from '../table/component/table.component';
 import { ITable } from '../table/interfaces/itable';
+import { InputModule } from '../input/input.module';
 
 @Component({
   selector: 'app-listing',
   standalone: true,
-  imports: [ TableComponent, MatButtonModule, MatIconModule, MatInputModule, FormsModule ],
+  imports: [ TableComponent, MatButtonModule, MatIconModule, MatInputModule, FormsModule, InputModule ],
   templateUrl: './listing.component.html',
   styleUrl: './listing.component.scss'
 })
