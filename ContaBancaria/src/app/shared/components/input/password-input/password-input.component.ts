@@ -26,7 +26,7 @@ export class PasswordInputComponent implements ControlValueAccessor, Validator {
   onChange = (value: any) => {};
   onTouched = () => {};
   onValidatorChange = () => {};
-  
+
   writeValue(value: any): void {
     this.control.setValue(value, { emitEvent: false });
   }
@@ -59,7 +59,11 @@ export class PasswordInputComponent implements ControlValueAccessor, Validator {
     return '';
   }
 
-  toggleHide(): void {
-    this.hide = !this.hide;
+  showPassword() {
+    this.hide = false;
+  }
+
+  hidePassword() {
+    this.hide = true;
   }
 }
