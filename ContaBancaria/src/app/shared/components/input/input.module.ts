@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button'
 
 import { EmailInputComponent } from './email-input/email-input.component';
 import { PasswordInputComponent } from './password-input/password-input.component';
-import { SearchInputComponent } from './search-input/search-input.component';
+import { SearchInputComponent } from './search-input/component/search-input.component';
 
 @NgModule({
   declarations: [

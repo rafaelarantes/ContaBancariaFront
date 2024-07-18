@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { TableComponent } from '../table/component/table.component';
 import { ITable } from '../table/interfaces/itable';
 import { InputModule } from '../input/input.module';
+import { FilterSearchServiceService } from '../input/search-input/services/filter-search-service.service';
 
 @Component({
   selector: 'app-listing',
@@ -17,9 +18,14 @@ import { InputModule } from '../input/input.module';
 })
 export class ListingComponent {
   private columns: Map<string, string> = new Map<string, string>();
-  search: string = '';
 
   @ViewChild(TableComponent) tableComponent: TableComponent = <TableComponent>{};
+
+  constructor(private filterSearchServiceService: FilterSearchServiceService) {
+    filterSearchServiceService.filter$.subscribe(search => {
+      this.tableComponent.filter(search);
+    });
+  }
 
   set setData(data: ITable[]){
     this.tableComponent.setData = data;
@@ -31,9 +37,5 @@ export class ListingComponent {
 
   setColumn(name: string, value: string){
     this.columns.set(name, value);
-  }
-
-  filter() {
-    this.tableComponent.filter(this.search);
   }
 }
