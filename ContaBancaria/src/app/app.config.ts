@@ -8,6 +8,6 @@ import { tokenInterceptor } from './autenticacao/interceptors/token.interceptor'
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideAnimationsAsync(), 
-    provideHttpClient(withInterceptors([tokenInterceptor])),
+    provideHttpClient(withInterceptors([tokenInterceptor])), provideAnimationsAsync(),
   ]
 };
