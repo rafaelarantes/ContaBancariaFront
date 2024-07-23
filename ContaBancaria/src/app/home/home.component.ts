@@ -25,7 +25,6 @@ export class HomeComponent extends BaseComponent {
     super();
 
     this.getTranslatedsTexts([this.TITLE_BANK_ACCOUNT, this.HOME_CHOOSE_OPTIONS]).subscribe((translated) => {
-      this.tituloService.setTitulo(translated[this.TITLE_BANK_ACCOUNT]);
       this.tituloCard = translated[this.HOME_CHOOSE_OPTIONS];
     });
   }

@@ -15,5 +15,13 @@
 
     "SHARED_INPUT_PASSWORD": "Password",
 
-    "AUTHENTICATION_LOGIN_SIGN_IN" : "Sign in"
+    "SHARED_INPUT_SEARCH_PLACEHOLDER": "Search...",
+
+    "AUTHENTICATION_LOGIN_SIGN_IN" : "Sign in",
+
+    "CENTRAL_BANK_TITLE": "Central Bank",
+    "CENTRAL_BANK_LISTING_NAME": "Name",
+    "CENTRAL_BANK_LISTING_BRANCH": "Branch"
+
+
 }

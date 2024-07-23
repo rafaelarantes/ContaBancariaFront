@@ -13,19 +13,27 @@ import { ListingComponent } from '../../../shared/components/listing/listing.com
   styleUrl: './listar-banco-central.component.scss',
 })
 export class ListarBancoCentralComponent extends BaseComponent implements AfterViewInit {
+  private readonly CENTRAL_BANK_TITLE = 'CENTRAL_BANK_TITLE';
+  private readonly CENTRAL_BANK_LISTING_NAME = 'CENTRAL_BANK_LISTING_NAME';
+  private readonly CENTRAL_BANK_LISTING_BRANCH = 'CENTRAL_BANK_LISTING_BRANCH';
 
   @ViewChild(ListingComponent) listingComponent: ListingComponent = <ListingComponent>{};
 
   constructor(private bancoCentralService: BancoCentralService,
               private tituloService: TituloService) {
     super();
-    tituloService.setTitulo('Banco Central');
+
+    this.getTranslatedText(this.CENTRAL_BANK_TITLE)
+        .subscribe(translatedText => tituloService.setTitulo(translatedText));
   }
 
   async ngAfterViewInit() {
-    this.listingComponent.setColumn('description', 'Nome');
-    this.listingComponent.setColumn('agencia', 'Agência');
-    this.listingComponent.updateColumns();
+    this.getTranslatedsTexts([this.CENTRAL_BANK_TITLE, this.CENTRAL_BANK_LISTING_NAME, this.CENTRAL_BANK_LISTING_BRANCH])
+        .subscribe(translatedsTexts => {
+          this.listingComponent.setColumn('description', translatedsTexts[this.CENTRAL_BANK_LISTING_NAME]);
+          this.listingComponent.setColumn('agencia', translatedsTexts[this.CENTRAL_BANK_LISTING_BRANCH]);
+          this.listingComponent.updateColumns();
+        });
 
     let returno = this.bancoCentralService.listagem();
     this.processReturn(returno, 'nome', (data) => {

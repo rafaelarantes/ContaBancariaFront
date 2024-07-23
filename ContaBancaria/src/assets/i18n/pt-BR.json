@@ -2,9 +2,9 @@
     "TITLE_BANK_ACCOUNT": "Conta Bancária",
     
     "HOME_CHOOSE_OPTIONS": "Acesse",
-    "HOME_CENTRAL_BANK": "Banco Central",
-    "HOME_BANK": "Banco",
-    "HOME_ACCOUNT": "Conta",
+    "HOME_OPTION_CENTRAL_BANK": "Banco Central",
+    "HOME_OPTION_BANK": "Banco",
+    "HOME_OPTION_ACCOUNT": "Conta",
     
     "REQUIRED": "Obrigatório",
 
@@ -15,5 +15,11 @@
 
     "SHARED_INPUT_PASSWORD": "Senha",
 
-    "AUTHENTICATION_LOGIN_SIGN_IN" : "Entrar"
+    "SHARED_INPUT_SEARCH_PLACEHOLDER": "Procurar...",
+
+    "AUTHENTICATION_LOGIN_SIGN_IN" : "Entrar",
+
+    "CENTRAL_BANK_TITLE": "Banco Central",
+    "CENTRAL_BANK_LISTING_NAME": "Nome",
+    "CENTRAL_BANK_LISTING_BRANCH": "Agência"
 }

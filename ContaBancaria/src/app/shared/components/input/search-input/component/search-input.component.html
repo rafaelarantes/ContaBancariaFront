@@ -1,9 +1,9 @@
 <div>
     <mat-form-field>
-        <input matInput placeholder="Procurar..." [(ngModel)]="search" (keydown.enter)="filter()">
+        <input matInput placeholder="{{ 'SHARED_INPUT_SEARCH_PLACEHOLDER' | translate }}" [(ngModel)]="search" (keydown.enter)="filter()">
     
         @if (search) {
-            <button class="clear-search" matSuffix mat-icon-button aria-label="Limpar" (click)="search=''">
+            <button class="clear-search" matSuffix mat-icon-button (click)="search=''">
                 <mat-icon>close</mat-icon>
             </button>
     
