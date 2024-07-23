@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 import { IUsuario } from '../../interfaces/iusuario';
 import { BaseComponent } from '../../../shared/components/base/base.component';
@@ -10,7 +11,7 @@ import { ButtonModule } from '../../../shared/components/button/button.module';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ FormsModule, ReactiveFormsModule, CardModule, InputModule, ButtonModule ],
+  imports: [ FormsModule, ReactiveFormsModule, CardModule, InputModule, ButtonModule, TranslateModule ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })

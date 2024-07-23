@@ -5,7 +5,7 @@
       
       <app-password-input formControlName="password" (keyup.enter)="login()"></app-password-input>
 
-      <app-stroked-button (buttonClick)="login()" text="Entrar"></app-stroked-button>
+      <app-stroked-button (buttonClick)="login()" text="{{ 'AUTHENTICATION_LOGIN_SIGN_IN' | translate }}"></app-stroked-button>
 
     </form>
 

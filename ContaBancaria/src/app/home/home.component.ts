@@ -5,22 +5,29 @@ import { CardModule } from '../shared/components/card/card.module';
 import { TituloService } from '../shared/services/titulo/titulo.service';
 import { BaseComponent } from '../shared/components/base/base.component';
 import { ButtonModule } from '../shared/components/button/button.module';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [  CardModule, ButtonModule ],
+  imports: [  CardModule, ButtonModule, TranslateModule ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent extends BaseComponent {
-  tituloCard = "Acesse";
+  readonly TITLE_BANK_ACCOUNT: string = 'TITLE_BANK_ACCOUNT';
+  readonly HOME_CHOOSE_OPTIONS: string = 'HOME_CHOOSE_OPTIONS';
+  
+  tituloCard = "";
 
   constructor(private router: Router,
               private tituloService: TituloService){
     super();
-    this.tituloService.setTitulo('Conta Bancária');
 
+    this.getTranslatedsTexts([this.TITLE_BANK_ACCOUNT, this.HOME_CHOOSE_OPTIONS]).subscribe((translated) => {
+      this.tituloService.setTitulo(translated[this.TITLE_BANK_ACCOUNT]);
+      this.tituloCard = translated[this.HOME_CHOOSE_OPTIONS];
+    });
   }
 
   estaAutorizado(autorizacao: string): boolean {

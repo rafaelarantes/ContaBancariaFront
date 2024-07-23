@@ -2,19 +2,19 @@
   <app-card [titulo]="tituloCard">
     @if(estaAutorizado('BancoCentral')){
       <div class="opcao">
-        <app-stroked-button (buttonClick)="acessar('banco-central')" text="Banco Central"></app-stroked-button>
+        <app-stroked-button (buttonClick)="acessar('banco-central')" text="{{ 'HOME_OPTION_CENTRAL_BANK' | translate }}"></app-stroked-button>
       </div>
     }
 
     @if(estaAutorizado('Banco')){
       <div class="opcao">
-        <app-stroked-button (buttonClick)="acessar('banco')" text="Banco"></app-stroked-button>
+        <app-stroked-button (buttonClick)="acessar('banco')" text="{{ 'HOME_OPTION_BANK' | translate }}"></app-stroked-button>
       </div>
     }
 
     @if(estaAutorizado('Conta')){
       <div class="opcao">
-        <app-stroked-button (buttonClick)="acessar('conta')" text="Conta"></app-stroked-button>
+        <app-stroked-button (buttonClick)="acessar('conta')" text="{{ 'HOME_OPTION_ACCOUNT' | translate }}"></app-stroked-button>
       </div>
     }
   </app-card>

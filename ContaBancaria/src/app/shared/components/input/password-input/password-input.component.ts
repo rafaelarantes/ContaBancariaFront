@@ -1,5 +1,6 @@
 import { Component, forwardRef } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator, Validators } from '@angular/forms';
+import { BaseComponent } from '../../base/base.component';
 
 @Component({
   selector: 'app-password-input',
@@ -18,7 +19,19 @@ import { AbstractControl, ControlValueAccessor, FormControl, NG_VALIDATORS, NG_V
     }
   ]
 })
-export class PasswordInputComponent implements ControlValueAccessor, Validator {
+export class PasswordInputComponent extends BaseComponent implements ControlValueAccessor, Validator {
+  private readonly REQUIRED = 'REQUIRED';
+  private requiredMessage = ''
+
+  constructor() {
+    super();
+
+    this.getTranslatedsTexts([this.REQUIRED])
+    .subscribe((translatedsTexts) => {
+      this.requiredMessage = translatedsTexts[this.REQUIRED];
+    });
+  }
+  
   control = new FormControl('password', [ Validators.required ]);
   
   hide = true;
@@ -53,7 +66,7 @@ export class PasswordInputComponent implements ControlValueAccessor, Validator {
 
   getErrorMessage(): string {
     if (this.control.hasError('required')) {
-      return 'Obrigatório';
+      return this.requiredMessage;
     }
 
     return '';

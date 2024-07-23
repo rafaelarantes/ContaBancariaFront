@@ -1,8 +1,8 @@
 <div class="email">
     <mat-form-field>
-      <mat-label>E-mail</mat-label>
+      <mat-label>{{ 'SHARED_INPUT_EMAIL_LABEL_EMAIL' | translate }}</mat-label>
       <input matInput
-            placeholder="nome@email.com"
+            placeholder="{{ 'SHARED_INPUT_EMAIL_PLACEHOLDER_EMAIL' | translate }}"
             [formControl]="control"
 zxczxc            required>
             @if (control.invalid) {
