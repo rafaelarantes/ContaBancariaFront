@@ -4,6 +4,7 @@ import { BancoCentralService } from '../../services/banco-central.service';
 import { TituloService } from '../../../shared/services/titulo/titulo.service';
 import { BaseComponent } from '../../../shared/components/base/base.component';
 import { ListingComponent } from '../../../shared/components/listing/listing.component';
+import { TranslationKeys } from '../../../shared/services/translation/translation-keys.enum';
 
 @Component({
   selector: 'app-listar-banco-central',
@@ -23,17 +24,14 @@ export class ListarBancoCentralComponent extends BaseComponent implements AfterV
               private tituloService: TituloService) {
     super();
 
-    this.getTranslatedText(this.CENTRAL_BANK_TITLE)
-        .subscribe(translatedText => tituloService.setTitulo(translatedText));
+    tituloService.setTitulo(this.getTranslatedText(TranslationKeys.CENTRAL_BANK_TITLE));
   }
 
   async ngAfterViewInit() {
-    this.getTranslatedsTexts([this.CENTRAL_BANK_TITLE, this.CENTRAL_BANK_LISTING_NAME, this.CENTRAL_BANK_LISTING_BRANCH])
-        .subscribe(translatedsTexts => {
-          this.listingComponent.setColumn('description', translatedsTexts[this.CENTRAL_BANK_LISTING_NAME]);
-          this.listingComponent.setColumn('agencia', translatedsTexts[this.CENTRAL_BANK_LISTING_BRANCH]);
-          this.listingComponent.updateColumns();
-        });
+
+    this.listingComponent.setColumn('description',this.getTranslatedText(TranslationKeys.CENTRAL_BANK_LISTING_NAME));
+    this.listingComponent.setColumn('agencia', this.getTranslatedText(TranslationKeys.CENTRAL_BANK_LISTING_BRANCH));
+    this.listingComponent.updateColumns();
 
     let returno = this.bancoCentralService.listagem();
     this.processReturn(returno, 'nome', (data) => {

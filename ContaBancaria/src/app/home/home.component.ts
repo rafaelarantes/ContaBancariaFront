@@ -5,28 +5,28 @@ import { CardModule } from '../shared/components/card/card.module';
 import { TituloService } from '../shared/services/titulo/titulo.service';
 import { BaseComponent } from '../shared/components/base/base.component';
 import { ButtonModule } from '../shared/components/button/button.module';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslationKeys } from '../shared/services/translation/translation-keys.enum';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [  CardModule, ButtonModule, TranslateModule ],
+  imports: [  CardModule, ButtonModule ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent extends BaseComponent {
-  readonly TITLE_BANK_ACCOUNT: string = 'TITLE_BANK_ACCOUNT';
-  readonly HOME_CHOOSE_OPTIONS: string = 'HOME_CHOOSE_OPTIONS';
-  
   tituloCard = "";
+  optionCentalBank = '';
+  optionBank = '';
+  optionAccount = '';
 
-  constructor(private router: Router,
-              private tituloService: TituloService){
+  constructor(private router: Router){
     super();
 
-    this.getTranslatedsTexts([this.TITLE_BANK_ACCOUNT, this.HOME_CHOOSE_OPTIONS]).subscribe((translated) => {
-      this.tituloCard = translated[this.HOME_CHOOSE_OPTIONS];
-    });
+    this.tituloCard = this.getTranslatedText(TranslationKeys.HOME_CHOOSE_OPTIONS);
+    this.optionCentalBank = this.getTranslatedText(TranslationKeys.HOME_OPTION_CENTRAL_BANK);
+    this.optionBank = this.getTranslatedText(TranslationKeys.HOME_OPTION_BANK);
+    this.optionAccount = this.getTranslatedText(TranslationKeys.HOME_OPTION_ACCOUNT);
   }
 
   estaAutorizado(autorizacao: string): boolean {

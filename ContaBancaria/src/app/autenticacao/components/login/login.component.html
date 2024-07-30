@@ -1,11 +1,11 @@
-<app-card [titulo]="tituloCard">
+<app-card [title]="tituloCard">
     <form [formGroup]="formLogin" novalidate>
       
       <app-email-input formControlName="email"></app-email-input>
       
       <app-password-input formControlName="password" (keyup.enter)="login()"></app-password-input>
 
-      <app-stroked-button (buttonClick)="login()" text="{{ 'AUTHENTICATION_LOGIN_SIGN_IN' | translate }}"></app-stroked-button>
+      <app-stroked-button (buttonClick)="login()" text="{{ loginSignIn }}"></app-stroked-button>
 
     </form>
 

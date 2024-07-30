@@ -3,8 +3,8 @@ import { inject } from '@angular/core';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AutenticacaoService } from '../../../autenticacao/services/autenticacao.service';
-import { TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
+import { TranslationService } from '../../services/translation/translation.service';
+import { TranslationKeys } from '../../services/translation/translation-keys.enum';
 
 @Component({
   selector: 'app-base',
@@ -16,12 +16,12 @@ import { Observable } from 'rxjs';
 export abstract class BaseComponent {
   private snackBar: MatSnackBar;
   protected autenticacaoService: AutenticacaoService;
-  protected translateService: TranslateService;
+  protected translationService: TranslationService;
 
   constructor() {
     this.snackBar = inject(MatSnackBar);
     this.autenticacaoService = inject(AutenticacaoService);
-    this.translateService = inject(TranslateService);
+    this.translationService = inject(TranslationService);
   }
 
   processReturn(promise: Promise<any>, 
@@ -59,12 +59,8 @@ export abstract class BaseComponent {
             });
   }
 
-  getTranslatedText(key: string): Observable<any> {
-    return this.translateService.get(key);
-  }
-
-  getTranslatedsTexts(keys: string[]): Observable<any> {
-    return this.translateService.get(keys);
+  getTranslatedText(key: TranslationKeys): string {
+    return this.translationService.getTranslation(key);
   }
 } 
 

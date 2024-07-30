@@ -2,6 +2,7 @@ import { Component, Input, forwardRef } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator, Validators } from '@angular/forms';
 
 import { BaseComponent } from '../../base/base.component';
+import { TranslationKeys } from '../../../services/translation/translation-keys.enum';
 
 @Component({
   selector: 'app-email-input',
@@ -21,10 +22,9 @@ import { BaseComponent } from '../../base/base.component';
   ]
 })
 export class EmailInputComponent extends BaseComponent implements ControlValueAccessor, Validator {
-  private readonly REQUIRED = 'REQUIRED';
+  label = '';
+  placeholder = '';
   private requiredMessage = ''
-
-  private readonly SHARED_INPUT_EMAIL_INVALID_EMAIL = 'SHARED_INPUT_EMAIL_INVALID_EMAIL';
   private invalidaEmailMessage = '';
 
   control = new FormControl('email', [Validators.required, Validators.email]);
@@ -36,11 +36,10 @@ export class EmailInputComponent extends BaseComponent implements ControlValueAc
   constructor() {
     super();
 
-    this.getTranslatedsTexts([this.REQUIRED, this.SHARED_INPUT_EMAIL_INVALID_EMAIL])
-        .subscribe((translatedsTexts) => {
-          this.requiredMessage = translatedsTexts[this.REQUIRED];
-          this.invalidaEmailMessage = translatedsTexts[this.SHARED_INPUT_EMAIL_INVALID_EMAIL];
-        });
+    this.label = this.getTranslatedText(TranslationKeys.SHARED_INPUT_EMAIL_LABEL_EMAIL);
+    this.placeholder = this.getTranslatedText(TranslationKeys.SHARED_INPUT_EMAIL_PLACEHOLDER_EMAIL);
+    this.requiredMessage = this.getTranslatedText(TranslationKeys.REQUIRED);
+    this.invalidaEmailMessage = this.getTranslatedText(TranslationKeys.SHARED_INPUT_EMAIL_INVALID_EMAIL);
   }
 
   writeValue(value: any): void {

@@ -1,6 +1,7 @@
 import { Component, forwardRef } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, ValidationErrors, Validator, Validators } from '@angular/forms';
 import { BaseComponent } from '../../base/base.component';
+import { TranslationKeys } from '../../../services/translation/translation-keys.enum';
 
 @Component({
   selector: 'app-password-input',
@@ -20,16 +21,14 @@ import { BaseComponent } from '../../base/base.component';
   ]
 })
 export class PasswordInputComponent extends BaseComponent implements ControlValueAccessor, Validator {
-  private readonly REQUIRED = 'REQUIRED';
+  label = '';
   private requiredMessage = ''
 
   constructor() {
     super();
 
-    this.getTranslatedsTexts([this.REQUIRED])
-    .subscribe((translatedsTexts) => {
-      this.requiredMessage = translatedsTexts[this.REQUIRED];
-    });
+    this.requiredMessage = this.getTranslatedText(TranslationKeys.REQUIRED);
+    this.label = this.getTranslatedText(TranslationKeys.SHARED_INPUT_PASSWORD);
   }
   
   control = new FormControl('password', [ Validators.required ]);
