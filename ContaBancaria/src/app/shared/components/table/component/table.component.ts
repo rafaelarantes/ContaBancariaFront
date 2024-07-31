@@ -8,6 +8,8 @@ import { PtBrMatPaginatorIntl } from '../services/pt-br-mat-paginator-intl';
 import { IAction } from '../interfaces/iaction';
 import { ITable } from '../interfaces/itable'
 import { Router } from '@angular/router';
+import { BaseComponent } from '../../base/base.component';
+import { TranslationKeys } from '../../../services/translation/translation-keys.enum';
 
 @Component({
   selector: 'app-table',
@@ -21,7 +23,7 @@ import { Router } from '@angular/router';
     useClass: PtBrMatPaginatorIntl
   }]
 })
-export class TableComponent implements AfterViewInit {
+export class TableComponent extends BaseComponent implements AfterViewInit {
   @ViewChild(MatPaginator) private paginator: MatPaginator = <MatPaginator>{};
   @ViewChild(MatSort) private sort = new MatSort();
 
@@ -35,6 +37,7 @@ export class TableComponent implements AfterViewInit {
 
   constructor(private _liveAnnouncer: LiveAnnouncer,
               private router: Router) {
+    super();
     this.actions.set(this.EDIT, { enabled: true });
     this.actions.set(this.DELETE, { enabled: true });
 
@@ -65,7 +68,9 @@ export class TableComponent implements AfterViewInit {
     this.columns = columns;
 
     if(this.hasActions){
-      this.columns.set(this.OPTIONS, 'Opções');
+
+      let sharedTableOptions = this.getTranslatedText(TranslationKeys.SHARED_TABLE_OPTIONS);
+      this.columns.set(this.OPTIONS, sharedTableOptions);
     }
   }
 
@@ -99,14 +104,6 @@ export class TableComponent implements AfterViewInit {
     if(!action) return false;
 
     return this.actions.get(action)?.enabled ? true : false;
-  }
-
-  announceSortChange(sortState: Sort) {
-    if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
-    } else {
-      this._liveAnnouncer.announce('Sorting cleared');
-    }
   }
 
   edit(element: ITable) {

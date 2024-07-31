@@ -1,6 +1,6 @@
 <div class="mat-elevation-z4 table-page">
   <section class="table-container" tabindex="0">
-    <table mat-table [dataSource]="getDataSource" matSort (matSortChange)="announceSortChange($event)">
+    <table mat-table [dataSource]="getDataSource" matSort>
       @for(column of getColumns; track column){
           <ng-container [matColumnDef]="column[0]">
             <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="column[0] === OPTIONS"> {{ column[1] }} </th>

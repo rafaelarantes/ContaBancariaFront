@@ -17,6 +17,7 @@ export class AppComponent extends BaseComponent {
   constructor(private tituloService: TituloService) {
     super();
 
+    this.translationService.setLanguage(Languages.enUS);
     let title = this.getTranslatedText(TranslationKeys.TITLE_BANK_ACCOUNT);
     this.tituloService.setTitulo(title, false);
   }

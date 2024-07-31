@@ -23,6 +23,17 @@ export const TRANSLATIONS : TranslationsType = {
         SHARED_INPUT_PASSWORD: "Password",
     
         SHARED_INPUT_SEARCH_PLACEHOLDER: "Search...",
+
+        SHARED_LISTING_ADD_LABEL: 'New',
+
+        SHARED_TABLE_OPTIONS: 'Options',
+
+        SHARED_TABLE_PAGINATOR_COUNT_PER_PAGE: 'Count per page',
+        SHARED_TABLE_PAGINATOR_FIRST_PAGE: 'First page',
+        SHARED_TABLE_PAGINATOR_LAST_PAGE: 'Last page',
+        SHARED_TABLE_PAGINATOR_NEXT_PAGE: 'Next page',
+        SHARED_TABLE_PAGINATOR_PREVIOUS_PAGE: 'Previous page',
+        SHARED_TABLE_PAGINATOR_OF: 'of',
     
         AUTHENTICATION_LOGIN_SIGN_IN : "Sign in",
     
@@ -48,6 +59,17 @@ export const TRANSLATIONS : TranslationsType = {
         SHARED_INPUT_PASSWORD: "Senha",
 
         SHARED_INPUT_SEARCH_PLACEHOLDER: "Procurar...",
+
+        SHARED_LISTING_ADD_LABEL: 'Novo',
+
+        SHARED_TABLE_OPTIONS: 'Opções',
+
+        SHARED_TABLE_PAGINATOR_COUNT_PER_PAGE: 'Qtd. por página:',
+        SHARED_TABLE_PAGINATOR_FIRST_PAGE: 'Primeira página',
+        SHARED_TABLE_PAGINATOR_LAST_PAGE: 'Última página',
+        SHARED_TABLE_PAGINATOR_NEXT_PAGE: 'Próxima página',
+        SHARED_TABLE_PAGINATOR_PREVIOUS_PAGE: 'Página anterior',
+        SHARED_TABLE_PAGINATOR_OF: 'de',
 
         AUTHENTICATION_LOGIN_SIGN_IN : "Entrar",
 
