@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 
 import { BancoCentralService } from '../../services/banco-central.service';
-import { TituloService } from '../../../shared/services/titulo/titulo.service';
+import { TitleService } from '../../../shared/services/title/title.service';
 import { BaseComponent } from '../../../shared/components/base/base.component';
 import { ListingComponent } from '../../../shared/components/listing/listing.component';
 import { TranslationKeys } from '../../../shared/services/translation/translation-keys.enum';
@@ -21,10 +21,10 @@ export class ListarBancoCentralComponent extends BaseComponent implements AfterV
   @ViewChild(ListingComponent) listingComponent: ListingComponent = <ListingComponent>{};
 
   constructor(private bancoCentralService: BancoCentralService,
-              private tituloService: TituloService) {
+              private titleService: TitleService) {
     super();
 
-    tituloService.setTitulo(this.getTranslatedText(TranslationKeys.CENTRAL_BANK_TITLE));
+    titleService.setTitle(this.getTranslatedText(TranslationKeys.CENTRAL_BANK_TITLE));
   }
 
   async ngAfterViewInit() {

@@ -4,7 +4,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatSort, MatSortModule, Sort } from '@angular/material/sort';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 
-import { PtBrMatPaginatorIntl } from '../services/pt-br-mat-paginator-intl';
+import { LanguageMatPaginatorIntl } from '../services/language-mat-paginator-intl';
 import { IAction } from '../interfaces/iaction';
 import { ITable } from '../interfaces/itable'
 import { Router } from '@angular/router';
@@ -20,7 +20,7 @@ import { TranslationKeys } from '../../../services/translation/translation-keys.
   styleUrl: './table.component.scss',
   providers:  [{
     provide: MatPaginatorIntl, 
-    useClass: PtBrMatPaginatorIntl
+    useClass: LanguageMatPaginatorIntl
   }]
 })
 export class TableComponent extends BaseComponent implements AfterViewInit {

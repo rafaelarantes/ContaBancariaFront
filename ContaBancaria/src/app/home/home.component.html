@@ -1,5 +1,5 @@
 @if(possuiPermissao){
-  <app-card [title]="tituloCard">
+  <app-card [title]="titleCard">
     @if(estaAutorizado('BancoCentral')){
       <div class="opcao">
         <app-stroked-button (buttonClick)="acessar('banco-central')" text="{{ optionCentalBank }}"></app-stroked-button>

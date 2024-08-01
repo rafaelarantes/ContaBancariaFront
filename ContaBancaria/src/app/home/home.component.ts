@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CardModule } from '../shared/components/card/card.module';
-import { TituloService } from '../shared/services/titulo/titulo.service';
+import { TitleService } from '../shared/services/title/title.service';
 import { BaseComponent } from '../shared/components/base/base.component';
 import { ButtonModule } from '../shared/components/button/button.module';
 import { TranslationKeys } from '../shared/services/translation/translation-keys.enum';
@@ -15,7 +15,7 @@ import { TranslationKeys } from '../shared/services/translation/translation-keys
   styleUrl: './home.component.scss'
 })
 export class HomeComponent extends BaseComponent {
-  tituloCard = "";
+  titleCard = "";
   optionCentalBank = '';
   optionBank = '';
   optionAccount = '';
@@ -23,7 +23,7 @@ export class HomeComponent extends BaseComponent {
   constructor(private router: Router){
     super();
 
-    this.tituloCard = this.getTranslatedText(TranslationKeys.HOME_CHOOSE_OPTIONS);
+    this.titleCard = this.getTranslatedText(TranslationKeys.HOME_CHOOSE_OPTIONS);
     this.optionCentalBank = this.getTranslatedText(TranslationKeys.HOME_OPTION_CENTRAL_BANK);
     this.optionBank = this.getTranslatedText(TranslationKeys.HOME_OPTION_BANK);
     this.optionAccount = this.getTranslatedText(TranslationKeys.HOME_OPTION_ACCOUNT);

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { TituloService } from '../../../shared/services/titulo/titulo.service';
+import { TitleService } from '../../../shared/services/title/title.service';
 import { BaseComponent } from '../../../shared/components/base/base.component'
 
 @Component({
@@ -11,10 +11,10 @@ import { BaseComponent } from '../../../shared/components/base/base.component'
   styleUrl: './criar-banco-central.component.scss'
 })
 export class CriarBancoCentralComponent extends BaseComponent {
-  constructor(tituloService: TituloService
+  constructor(titleService: TitleService
   ) {
     super();
-    tituloService.setTitulo('');
+    titleService.setTitle('');
 
   }
 }

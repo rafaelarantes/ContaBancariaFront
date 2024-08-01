@@ -7,7 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AutenticacaoService } from '../autenticacao/services/autenticacao.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { TituloService } from '../shared/services/titulo/titulo.service';
+import { TitleService } from '../shared/services/title/title.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,8 +22,8 @@ export class DefaultLayoutComponent {
 
   constructor(private autenticacaoService: AutenticacaoService,
               private location: Location,
-              public tituloService: TituloService) {
-    this.tituloService.titulo$.subscribe(title => {
+              public titleService: TitleService) {
+    this.titleService.title$.subscribe(title => {
       this.title = title;
     });
   }
@@ -48,6 +48,6 @@ export class DefaultLayoutComponent {
   }
 
   limparSessao() {
-    this.tituloService.setTitulo('');
+    this.titleService.setTitle('');
   }
 }

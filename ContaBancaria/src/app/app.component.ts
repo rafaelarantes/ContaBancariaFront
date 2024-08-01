@@ -1,7 +1,7 @@
 import { Component, TRANSLATIONS } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { TituloService } from './shared/services/titulo/titulo.service';
+import { TitleService } from './shared/services/title/title.service';
 import { BaseComponent } from './shared/components/base/base.component';
 import { TranslationKeys } from './shared/services/translation/translation-keys.enum';
 import { Languages } from './shared/services/translation/languages.enum';
@@ -14,11 +14,11 @@ import { Languages } from './shared/services/translation/languages.enum';
   styleUrl: './app.component.scss'
 })
 export class AppComponent extends BaseComponent {
-  constructor(private tituloService: TituloService) {
+  constructor(private titleService: TitleService) {
     super();
 
     this.translationService.setLanguage(Languages.enUS);
     let title = this.getTranslatedText(TranslationKeys.TITLE_BANK_ACCOUNT);
-    this.tituloService.setTitulo(title, false);
+    this.titleService.setTitle(title, false);
   }
 }

@@ -18,7 +18,7 @@ import { TranslationKeys } from '../../../shared/services/translation/translatio
 export class LoginComponent extends BaseComponent {
   loginSignIn = '';
   formLogin: FormGroup;
-  tituloCard = 'Login';
+  titleCard = 'Login';
 
   constructor(private formBuilder: FormBuilder){
     super();

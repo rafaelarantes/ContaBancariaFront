@@ -1,10 +1,10 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { TranslationService } from '../../../services/translation/translation.service';
 import { TranslationKeys } from '../../../services/translation/translation-keys.enum';
 
 @Injectable()
-export class PtBrMatPaginatorIntl extends MatPaginatorIntl {
+export class LanguageMatPaginatorIntl extends MatPaginatorIntl {
   ofLabel: string = '';
 
   constructor(translationService: TranslationService) {
