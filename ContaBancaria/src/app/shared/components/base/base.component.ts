@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { inject } from '@angular/core';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AutenticacaoService } from '../../../autenticacao/services/autenticacao.service';
+import { AuthenticationService } from '../../../authentication/services/authentication.service';
 import { TranslationService } from '../../services/translation/translation.service';
 import { TranslationKeys } from '../../services/translation/translation-keys.enum';
 
@@ -15,12 +15,12 @@ import { TranslationKeys } from '../../services/translation/translation-keys.enu
 })
 export abstract class BaseComponent {
   private snackBar: MatSnackBar;
-  protected autenticacaoService: AutenticacaoService;
+  protected authenticationService: AuthenticationService;
   protected translationService: TranslationService;
 
   constructor() {
     this.snackBar = inject(MatSnackBar);
-    this.autenticacaoService = inject(AutenticacaoService);
+    this.authenticationService = inject(AuthenticationService);
     this.translationService = inject(TranslationService);
   }
 
@@ -51,7 +51,7 @@ export abstract class BaseComponent {
               });
 
               if(error.status === 401){
-                this.autenticacaoService.deslogar();
+                this.authenticationService.logOut();
                 window.location.reload();
               }
 

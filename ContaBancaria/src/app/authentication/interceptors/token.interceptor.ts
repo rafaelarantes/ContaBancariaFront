@@ -2,13 +2,13 @@ import { HttpHandlerFn, HttpInterceptorFn, HttpRequest } from '@angular/common/h
 import { inject } from '@angular/core';
 
 import { environment } from '../../../environments/environment.development';
-import { AutenticacaoService } from '../services/autenticacao.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 export const tokenInterceptor: HttpInterceptorFn = 
     (req: HttpRequest<unknown>, next: HttpHandlerFn) => {
   
-  const autenticacaoService = inject(AutenticacaoService);
-  const token = autenticacaoService.tokenUsuario;
+  const autenticacaoService = inject(AuthenticationService);
+  const token = autenticacaoService.tokenUser;
   
   const requestUrl: Array<any> = req.url.split('/');
   const apiUrl: Array<any> = environment.apiUrl.split('/');

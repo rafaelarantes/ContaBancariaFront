@@ -34,10 +34,10 @@ export class HomeComponent extends BaseComponent {
       return false;
     }
 
-    if(this.autenticacaoService.autorizacao === 'Adm' || 
-       (autorizacao == 'Banco' && this.autenticacaoService.autorizacao === 'Banco') || 
-       (autorizacao == 'Conta' && this.autenticacaoService.autorizacao === 'Conta') ||
-       (autorizacao == 'BancoCentral' && this.autenticacaoService.autorizacao === 'BancoCentral')) {
+    if(this.authenticationService.authorization === 'Adm' || 
+       (autorizacao == 'Banco' && this.authenticationService.authorization === 'Banco') || 
+       (autorizacao == 'Conta' && this.authenticationService.authorization === 'Conta') ||
+       (autorizacao == 'BancoCentral' && this.authenticationService.authorization === 'BancoCentral')) {
       
       return true;
     }

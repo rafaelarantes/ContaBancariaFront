@@ -5,7 +5,7 @@ import { HostListener } from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { AutenticacaoService } from '../autenticacao/services/autenticacao.service';
+import { AuthenticationService } from '../authentication/services/authentication.service';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TitleService } from '../shared/services/title/title.service';
 
@@ -20,7 +20,7 @@ import { TitleService } from '../shared/services/title/title.service';
 export class DefaultLayoutComponent {
   title = '';
 
-  constructor(private autenticacaoService: AutenticacaoService,
+  constructor(private authenticationService: AuthenticationService,
               private location: Location,
               public titleService: TitleService) {
     this.titleService.title$.subscribe(title => {
@@ -28,26 +28,26 @@ export class DefaultLayoutComponent {
     });
   }
 
-  deslogar(){
-    this.limparSessao();
-    this.autenticacaoService.deslogar();
+  logOut(){
+    this.clearSession();
+    this.authenticationService.logOut();
   }
 
-  voltar() {
-    this.limparSessao();
+  back() {
+    this.clearSession();
     this.location.back();
   }
 
   @HostListener('window:popstate', ['$event'])
   onPopState() {
-    this.limparSessao();
+    this.clearSession();
   }
 
   get path(){
     return this.location.path();
   }
 
-  limparSessao() {
+  clearSession() {
     this.titleService.setTitle('');
   }
 }

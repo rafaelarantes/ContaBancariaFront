@@ -4,7 +4,7 @@
 			<div class="left">
 				@if(path){
 					<div>
-						<button mat-icon-button (click)="voltar()" [ngClass]="{'has-title': title !== ''}">
+						<button mat-icon-button (click)="back()" [ngClass]="{'has-title': title !== ''}">
 							<mat-icon>arrow_back</mat-icon>
 						</button>
 					</div>
@@ -17,7 +17,7 @@
 				</div>
 			</div>
 			<div class="right">
-				<button mat-icon-button (click)="deslogar()" [ngClass]="{'has-title': title !== ''}">
+				<button mat-icon-button (click)="logOut()" [ngClass]="{'has-title': title !== ''}">
 					<mat-icon>logout</mat-icon>
 				</button>
 			</div>

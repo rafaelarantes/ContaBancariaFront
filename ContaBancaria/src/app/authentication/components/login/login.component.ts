@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder } from '@angular/forms';
 
-import { IUsuario } from '../../interfaces/iusuario';
+import { IUser } from '../../interfaces/iuser';
 import { BaseComponent } from '../../../shared/components/base/base.component';
 import { CardModule } from '../../../shared/components/card/card.module';
 import { InputModule } from '../../../shared/components/input/input.module'
@@ -32,8 +32,8 @@ export class LoginComponent extends BaseComponent {
 
   login(){
       if(this.formLogin.valid) {
-        var usuario = this.formLogin.getRawValue() as IUsuario;
-        let retorno = this.autenticacaoService.logar(usuario);
+        var user = this.formLogin.getRawValue() as IUser;
+        let retorno = this.authenticationService.login(user);
   
         this.processReturn(retorno);
       }
