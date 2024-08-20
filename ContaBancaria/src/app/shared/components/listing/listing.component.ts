@@ -10,6 +10,7 @@ import { InputModule } from '../input/input.module';
 import { FilterSearchServiceService } from '../input/search-input/services/filter-search-service.service';
 import { BaseComponent } from '../base/base.component';
 import { TranslationKeys } from '../../services/translation/translation-keys.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listing',
@@ -25,7 +26,9 @@ export class ListingComponent extends BaseComponent {
 
   @ViewChild(TableComponent) tableComponent: TableComponent = <TableComponent>{};
 
-  constructor(private filterSearchServiceService: FilterSearchServiceService) {
+  constructor(private filterSearchServiceService: FilterSearchServiceService,
+              private router: Router
+  ) {
     super();
 
     this.newLabel = this.getTranslatedText(TranslationKeys.SHARED_LISTING_ADD_LABEL);
@@ -45,5 +48,9 @@ export class ListingComponent extends BaseComponent {
 
   setColumn(name: string, value: string){
     this.columns.set(name, value);
+  }
+
+  create() {
+    this.router.navigate([`${ this.router.url }/create`]);
   }
 }

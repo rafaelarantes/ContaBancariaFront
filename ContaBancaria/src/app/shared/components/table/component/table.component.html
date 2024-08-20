@@ -8,7 +8,7 @@
               <td mat-cell *matCellDef="let element">
                 <div>
                 @if(actionEnabled(EDIT)){
-                  <div><i class="material-icons" (click)="edit(element)">edit</i></div>
+                  <div><i class="material-icons" (click)="modify(element)">edit</i></div>
                 }
                 
                 @if(actionEnabled(DELETE)){
