@@ -14,6 +14,7 @@ export const TRANSLATIONS : TranslationsType = {
         HOME_OPTION_ACCOUNT: "Account",
     
         REQUIRED: "Required",
+        NUMBERS_ONLY: "Numbers only",
     
         SHARED_INPUT_EMAIL: "Email",
         SHARED_INPUT_EMAIL_INVALID_EMAIL: "Invalid email",
@@ -57,6 +58,7 @@ export const TRANSLATIONS : TranslationsType = {
         HOME_OPTION_ACCOUNT: "Conta",
     
         REQUIRED: "Obrigatório",
+        NUMBERS_ONLY: "Apenas números",
 
         SHARED_INPUT_EMAIL: "E-mail",
         SHARED_INPUT_EMAIL_INVALID_EMAIL: "E-mail inválido",

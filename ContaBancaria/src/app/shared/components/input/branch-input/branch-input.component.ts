@@ -20,10 +20,11 @@ export class BranchInputComponent extends BaseComponent implements ControlValueA
   label = '';
   placeholder = '';
   private requiredMessage = '';
+  private numbersOnlyMessage = '';
 
   onTouched: () => void = () => {};
 
-  control = new FormControl('', [Validators.required]);
+  control = new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]);
   
   constructor() {
     super();
@@ -31,6 +32,7 @@ export class BranchInputComponent extends BaseComponent implements ControlValueA
     this.label = this.getTranslatedText(TranslationKeys.SHARED_INPUT_BRANCH_LABEL_NAME);
     this.placeholder = this.getTranslatedText(TranslationKeys.SHARED_INPUT_NAME_PLACEHOLDER_NAME);
     this.requiredMessage = this.getTranslatedText(TranslationKeys.REQUIRED);
+    this.numbersOnlyMessage = this.getTranslatedText(TranslationKeys.NUMBERS_ONLY);
   }
 
   writeValue(value: any): void {
@@ -51,10 +53,16 @@ export class BranchInputComponent extends BaseComponent implements ControlValueA
   }
 
   getErrorMessage() : string {
+    if(this.control.hasError('pattern')){
+      return this.numbersOnlyMessage;
+    }
+
     if (this.control.hasError('required')) {
       return this.requiredMessage;
     } 
 
     return '';
   }
+
+  
 }
