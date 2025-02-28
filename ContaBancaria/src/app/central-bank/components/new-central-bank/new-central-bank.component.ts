@@ -25,6 +25,7 @@ export class NewCentralBankComponent extends BaseComponent {
 
     this.formNewCentralBank = this.formBuilder.group({
       name: [''],
+      branch: ['']
     });
   }
 }

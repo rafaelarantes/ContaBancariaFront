@@ -1,0 +1,12 @@
+<div class="branch">
+    <mat-form-field>
+      <mat-label>{{ label }}</mat-label>
+      <input matInput
+            [formControl]="control"
+            required
+            type="number">
+            @if (control.invalid) {
+              <mat-error>{{ getErrorMessage() }}</mat-error>
+            } 
+    </mat-form-field>
+</div>

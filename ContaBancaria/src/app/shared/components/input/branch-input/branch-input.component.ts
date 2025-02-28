@@ -4,36 +4,35 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from
 import { BaseComponent } from '../../base/base.component';
 import { TranslationKeys } from '../../../services/translation/translation-keys.enum';
 
-
 @Component({
-  selector: 'app-name-input',
-  templateUrl: './name-input.component.html',
-  styleUrl: './name-input.component.scss',
+  selector: 'app-branch-input',
+  templateUrl: './branch-input.component.html',
+  styleUrl: './branch-input.component.scss',
   providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => NameInputComponent),
-      multi: true,
-    }
-  ],
+      {
+        provide: NG_VALUE_ACCESSOR,
+        useExisting: forwardRef(() => BranchInputComponent),
+        multi: true,
+      }
+  ]
 })
-export class NameInputComponent extends BaseComponent implements ControlValueAccessor {
+export class BranchInputComponent extends BaseComponent implements ControlValueAccessor {
   label = '';
   placeholder = '';
   private requiredMessage = '';
-  
+
   onTouched: () => void = () => {};
 
   control = new FormControl('', [Validators.required]);
-
+  
   constructor() {
     super();
 
-    this.label = this.getTranslatedText(TranslationKeys.SHARED_INPUT_NAME_LABEL_NAME);
+    this.label = this.getTranslatedText(TranslationKeys.SHARED_INPUT_BRANCH_LABEL_NAME);
     this.placeholder = this.getTranslatedText(TranslationKeys.SHARED_INPUT_NAME_PLACEHOLDER_NAME);
     this.requiredMessage = this.getTranslatedText(TranslationKeys.REQUIRED);
   }
-  
+
   writeValue(value: any): void {
     this.control.setValue(value);
   }
