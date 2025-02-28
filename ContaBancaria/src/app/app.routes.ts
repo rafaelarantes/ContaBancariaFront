@@ -8,7 +8,8 @@ import { authenticatedGuard } from './authentication/guards/authenticated.guard'
 
 import { CentralBankComponent } from './central-bank/components/central-bank/central-bank.component';
 import { ListCentralBankComponent } from './central-bank/components/list-central-bank/list-central-bank.component';
-import { CreateCentralBankComponent } from './central-bank/components/create-central-bank/create-central-bank.component';
+import { NewCentralBankComponent } from './central-bank/components/new-central-bank/new-central-bank.component';
+import { EditCentralBankComponent} from './central-bank/components/edit-central-bank/edit-central-bank.component';
 
 export const routes: Routes = [
     { path: '', component: DefaultLayoutComponent, canActivate: [ authenticatedGuard ], 
@@ -17,8 +18,8 @@ export const routes: Routes = [
             { path: 'central-bank', component: CentralBankComponent, canActivate: [ authenticatedGuard ],
                 children: [
                     { path: '', component: ListCentralBankComponent, canActivate: [ authenticatedGuard ] },
-                    { path: 'create', component: CreateCentralBankComponent, canActivate: [ authenticatedGuard ] },
-                    { path: 'modify/:string', component: CreateCentralBankComponent, canActivate: [ authenticatedGuard ]  }
+                    { path: 'new', component: NewCentralBankComponent, canActivate: [ authenticatedGuard ] },
+                    { path: 'edit/:string', component: EditCentralBankComponent, canActivate: [ authenticatedGuard ]  }
             ]},
         ]
     },

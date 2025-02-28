@@ -50,7 +50,7 @@ export class ListingComponent extends BaseComponent {
     this.columns.set(name, value);
   }
 
-  create() {
-    this.router.navigate([`${ this.router.url }/create`]);
+  new() {
+    this.router.navigate([`${ this.router.url }/new`]);
   }
 }

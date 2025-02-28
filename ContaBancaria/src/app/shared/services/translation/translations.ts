@@ -19,6 +19,9 @@ export const TRANSLATIONS : TranslationsType = {
         SHARED_INPUT_EMAIL_INVALID_EMAIL: "Invalid email",
         SHARED_INPUT_EMAIL_PLACEHOLDER_EMAIL: "name@email.com",
         SHARED_INPUT_EMAIL_LABEL_EMAIL: "Email",
+
+        SHARED_INPUT_NAME_PLACEHOLDER_NAME: 'Name',
+        SHARED_INPUT_NAME_LABEL_NAME: 'Name',
     
         SHARED_INPUT_PASSWORD: "Password",
     
@@ -39,7 +42,8 @@ export const TRANSLATIONS : TranslationsType = {
     
         CENTRAL_BANK_TITLE: "Central Bank",
         CENTRAL_BANK_LISTING_NAME: "Name",
-        CENTRAL_BANK_LISTING_BRANCH: "Branch"
+        CENTRAL_BANK_LISTING_BRANCH: "Branch",
+        CENTRAL_BANK_NEW_TITLE: "Central Bank - New"
     },
     pt_BR: {
         TITLE_BANK_ACCOUNT: "Conta Bancária",
@@ -55,6 +59,9 @@ export const TRANSLATIONS : TranslationsType = {
         SHARED_INPUT_EMAIL_INVALID_EMAIL: "E-mail inválido",
         SHARED_INPUT_EMAIL_PLACEHOLDER_EMAIL: "nome@email.com",
         SHARED_INPUT_EMAIL_LABEL_EMAIL: "E-mail",
+
+        SHARED_INPUT_NAME_PLACEHOLDER_NAME: 'Nome',
+        SHARED_INPUT_NAME_LABEL_NAME: 'Nome',
 
         SHARED_INPUT_PASSWORD: "Senha",
 
@@ -75,6 +82,7 @@ export const TRANSLATIONS : TranslationsType = {
 
         CENTRAL_BANK_TITLE: "Banco Central",
         CENTRAL_BANK_LISTING_NAME: "Nome",
-        CENTRAL_BANK_LISTING_BRANCH: "Agência"
+        CENTRAL_BANK_LISTING_BRANCH: "Agência",
+        CENTRAL_BANK_NEW_TITLE: "Banco Central - Novo"
     }
   };

@@ -106,8 +106,8 @@ export class TableComponent extends BaseComponent implements AfterViewInit {
     return this.actions.get(action)?.enabled ? true : false;
   }
 
-  modify(element: ITable) {
-    this.router.navigate([`${ this.router.url }/modify`, element.guid ]);
+  edit(element: ITable) {
+    this.router.navigate([`${ this.router.url }/edit`, element.guid ]);
   }
 
   delete(element: ITable) {

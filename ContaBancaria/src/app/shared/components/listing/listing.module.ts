@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ListingComponent } from './listing.component';
+import { ITable } from '../table/interfaces/itable';
 
 @NgModule({
   declarations: [ ListingComponent ],
@@ -10,4 +11,5 @@ import { ListingComponent } from './listing.component';
   ],
   exports: [ ListingComponent ]
 })
-export class ListingModule { }
+export class ListingModule {
+ }

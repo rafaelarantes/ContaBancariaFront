@@ -8,13 +8,14 @@ import { MatButtonModule } from '@angular/material/button'
 import { EmailInputComponent } from './email-input/email-input.component';
 import { PasswordInputComponent } from './password-input/password-input.component';
 import { SearchInputComponent } from './search-input/component/search-input.component';
-
+import { NameInputComponent } from './name-input/name-input.component';
 
 @NgModule({
   declarations: [
     EmailInputComponent,
     PasswordInputComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    NameInputComponent
   ],
   imports: [
     CommonModule,
@@ -27,6 +28,7 @@ import { SearchInputComponent } from './search-input/component/search-input.comp
    exports: [ 
     EmailInputComponent,
     PasswordInputComponent,
-    SearchInputComponent]
+    SearchInputComponent,
+    NameInputComponent]
 })
 export class InputModule { }

@@ -1,8 +1,7 @@
-<div class="email">
+<div class="name">
     <mat-form-field>
       <mat-label>{{ label }}</mat-label>
       <input matInput
-            placeholder="{{ placeholder }}"
             [formControl]="control"
             required>
             @if (control.invalid) {
