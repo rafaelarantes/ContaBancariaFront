@@ -1,24 +1,25 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, forwardRef, Input, input } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 
 import { BaseComponent } from '../../base/base.component';
 import { TranslationKeys } from '../../../services/translation/translation-keys.enum';
 
 @Component({
-  selector: 'app-branch-input',
-  templateUrl: './branch-input.component.html',
-  styleUrl: './branch-input.component.scss',
+  selector: 'app-number-input',
+  templateUrl: './number-input.component.html',
+  styleUrl: './number-input.component.scss',
   providers: [
       {
         provide: NG_VALUE_ACCESSOR,
-        useExisting: forwardRef(() => BranchInputComponent),
+        useExisting: forwardRef(() => NumberInputComponent),
         multi: true,
       }
   ]
 })
-export class BranchInputComponent extends BaseComponent implements ControlValueAccessor {
-  label = '';
-  placeholder = '';
+export class NumberInputComponent extends BaseComponent implements ControlValueAccessor {
+  @Input() label: string = '';
+  @Input() placeholder: string = '';
+  
   private requiredMessage = '';
   private numbersOnlyMessage = '';
 
@@ -28,9 +29,6 @@ export class BranchInputComponent extends BaseComponent implements ControlValueA
   
   constructor() {
     super();
-
-    this.label = this.getTranslatedText(TranslationKeys.SHARED_INPUT_BRANCH_LABEL_NAME);
-    this.placeholder = this.getTranslatedText(TranslationKeys.SHARED_INPUT_NAME_PLACEHOLDER_NAME);
     this.requiredMessage = this.getTranslatedText(TranslationKeys.REQUIRED);
     this.numbersOnlyMessage = this.getTranslatedText(TranslationKeys.NUMBERS_ONLY);
   }
@@ -63,6 +61,4 @@ export class BranchInputComponent extends BaseComponent implements ControlValueA
 
     return '';
   }
-
-  
 }

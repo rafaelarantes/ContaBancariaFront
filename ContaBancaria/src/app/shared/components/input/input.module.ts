@@ -9,7 +9,7 @@ import { EmailInputComponent } from './email-input/email-input.component';
 import { PasswordInputComponent } from './password-input/password-input.component';
 import { SearchInputComponent } from './search-input/component/search-input.component';
 import { NameInputComponent } from './name-input/name-input.component';
-import { BranchInputComponent } from './branch-input/branch-input.component';
+import { NumberInputComponent } from './number-input/number-input.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,7 @@ import { BranchInputComponent } from './branch-input/branch-input.component';
     PasswordInputComponent,
     SearchInputComponent,
     NameInputComponent,
-    BranchInputComponent
+    NumberInputComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +32,6 @@ import { BranchInputComponent } from './branch-input/branch-input.component';
     PasswordInputComponent,
     SearchInputComponent,
     NameInputComponent,
-    BranchInputComponent]
+    NumberInputComponent]
 })
 export class InputModule { }

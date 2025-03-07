@@ -16,6 +16,12 @@ import { TranslationKeys } from '../../../shared/services/translation/translatio
 export class NewCentralBankComponent extends BaseComponent {
   formNewCentralBank: FormGroup;
 
+  labelBranch = '';
+  placeholderBranch = '';
+
+  labelBankNumber = '';
+  placeholderBankNumber = '';
+
   constructor(private formBuilder: FormBuilder,
               private titleService: TitleService
   ){
@@ -25,7 +31,14 @@ export class NewCentralBankComponent extends BaseComponent {
 
     this.formNewCentralBank = this.formBuilder.group({
       name: [''],
-      branch: ['']
+      branch: [''],
+      bankNumber: ['']
     });
+
+    this.labelBranch = this.getTranslatedText(TranslationKeys.SHARED_INPUT_BRANCH_LABEL_NAME);
+    this.placeholderBranch = this.getTranslatedText(TranslationKeys.SHARED_INPUT_BRANCH_PLACEHOLDER_NAME);
+
+    this.labelBankNumber = this.getTranslatedText(TranslationKeys.SHARED_INPUT_BANK_NUMBER_LABEL_NAME);
+    this.placeholderBankNumber = this.getTranslatedText(TranslationKeys.SHARED_INPUT_BANK_NUMBER_PLACEHOLDER_NAME);
   }
 }

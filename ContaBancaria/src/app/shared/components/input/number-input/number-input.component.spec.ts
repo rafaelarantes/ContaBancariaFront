@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NumberBankInputComponent } from './number-bank-input.component';
+import { NumberInputComponent } from './number-input.component';
 
-describe('NumberBankInputComponent', () => {
-  let component: NumberBankInputComponent;
-  let fixture: ComponentFixture<NumberBankInputComponent>;
+describe('BranchInputComponent', () => {
+  let component: NumberInputComponent;
+  let fixture: ComponentFixture<NumberInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NumberBankInputComponent]
+      imports: [NumberInputComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(NumberBankInputComponent);
+    fixture = TestBed.createComponent(NumberInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

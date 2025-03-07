@@ -1,7 +1,7 @@
 @import '../sass/input.scss';
 
 
-::ng-deep app-branch-input {
+::ng-deep app-number-input {
     @include input__size;
     @include input__color;
     @include input__font;

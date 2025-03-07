@@ -1,4 +1,5 @@
 <form [formGroup]="formNewCentralBank">
     <app-name-input formControlName="name"></app-name-input>
-    <app-branch-input formControlName="branch"></app-branch-input>
+    <app-number-input formControlName="bankNumber" [label]="labelBankNumber" [placeholder]="placeholderBankNumber"></app-number-input>
+    <app-number-input formControlName="branch" [label]="labelBranch" [placeholder]="placeholderBranch"></app-number-input>
 </form>

@@ -31,6 +31,9 @@ export const TRANSLATIONS : TranslationsType = {
         SHARED_INPUT_BRANCH_LABEL_NAME: 'Branch',
         SHARED_INPUT_BRANCH_PLACEHOLDER_NAME: 'Branch',
 
+        SHARED_INPUT_BANK_NUMBER_LABEL_NAME: 'Number',
+        SHARED_INPUT_BANK_NUMBER_PLACEHOLDER_NAME: 'Number',
+
         SHARED_LISTING_ADD_LABEL: 'New',
 
         SHARED_TABLE_OPTIONS: 'Options',
@@ -74,6 +77,9 @@ export const TRANSLATIONS : TranslationsType = {
 
         SHARED_INPUT_BRANCH_LABEL_NAME: 'Agência',
         SHARED_INPUT_BRANCH_PLACEHOLDER_NAME: 'Agência',
+
+        SHARED_INPUT_BANK_NUMBER_LABEL_NAME: 'Número',
+        SHARED_INPUT_BANK_NUMBER_PLACEHOLDER_NAME: 'Número',
 
         SHARED_LISTING_ADD_LABEL: 'Novo',
 
