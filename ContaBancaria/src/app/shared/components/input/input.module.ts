@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { EmailInputComponent } from './email-input/email-input.component';
 import { PasswordInputComponent } from './password-input/password-input.component';
 import { SearchInputComponent } from './search-input/component/search-input.component';
-import { NameInputComponent } from './name-input/name-input.component';
+import { TextInputComponent } from './text-input/text-input.component';
 import { NumberInputComponent } from './number-input/number-input.component';
 
 @NgModule({
@@ -16,7 +16,7 @@ import { NumberInputComponent } from './number-input/number-input.component';
     EmailInputComponent,
     PasswordInputComponent,
     SearchInputComponent,
-    NameInputComponent,
+    TextInputComponent,
     NumberInputComponent
   ],
   imports: [
@@ -31,7 +31,7 @@ import { NumberInputComponent } from './number-input/number-input.component';
     EmailInputComponent,
     PasswordInputComponent,
     SearchInputComponent,
-    NameInputComponent,
+    TextInputComponent,
     NumberInputComponent]
 })
 export class InputModule { }

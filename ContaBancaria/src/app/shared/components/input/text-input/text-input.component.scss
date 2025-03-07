@@ -1,7 +1,7 @@
 @import '../sass/input.scss';
 
 
-::ng-deep app-name-input {
+::ng-deep app-text-input {
     @include input__size;
     @include input__color;
     @include input__font;

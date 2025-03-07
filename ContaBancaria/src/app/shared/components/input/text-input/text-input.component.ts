@@ -1,25 +1,25 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 
 import { BaseComponent } from '../../base/base.component';
 import { TranslationKeys } from '../../../services/translation/translation-keys.enum';
 
-
 @Component({
-  selector: 'app-name-input',
-  templateUrl: './name-input.component.html',
-  styleUrl: './name-input.component.scss',
+  selector: 'app-text-input',
+  templateUrl: './text-input.component.html',
+  styleUrl: './text-input.component.scss',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => NameInputComponent),
+      useExisting: forwardRef(() => TextInputComponent),
       multi: true,
     }
   ],
 })
-export class NameInputComponent extends BaseComponent implements ControlValueAccessor {
-  label = '';
-  placeholder = '';
+export class TextInputComponent extends BaseComponent implements ControlValueAccessor {
+  @Input() label: string = '';
+  @Input() placeholder: string = '';
+  
   private requiredMessage = '';
   
   onTouched: () => void = () => {};
@@ -29,8 +29,6 @@ export class NameInputComponent extends BaseComponent implements ControlValueAcc
   constructor() {
     super();
 
-    this.label = this.getTranslatedText(TranslationKeys.SHARED_INPUT_NAME_LABEL_NAME);
-    this.placeholder = this.getTranslatedText(TranslationKeys.SHARED_INPUT_NAME_PLACEHOLDER_NAME);
     this.requiredMessage = this.getTranslatedText(TranslationKeys.REQUIRED);
   }
   
